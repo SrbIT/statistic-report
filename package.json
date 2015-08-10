@@ -1,0 +1,9 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "dependencies": {
+    "moment": "^2.10.6",
+    "mongodb": "^2.0.40",
+    "redis": "^0.12.1"
+  }
+}
