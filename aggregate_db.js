@@ -39,31 +39,3 @@ MongoClient.connect(url, function (err, db) {
         db.close();
     });
 });
-
-//var findAgg = function (db, callback) {
-//    db.collection("table_sessions").aggregate([
-//        {$match: {date_min: "201508100853"}},
-//        {$group: {_id: "$date_min", total: {$sum: "$value"}}}
-//    ], function (err, re) {
-//        console.log(re)
-//        db.close()
-//    });
-
-//console.log(cursor)
-//var cursor =db.collection('table_sessions').find( );
-//cursor.each(function (err, doc) {
-//    assert.equal(err, null);
-//    if (doc != null) {
-//        console.dir(doc);
-//    } else {
-//        callback();
-//    }
-//});
-//};
-
-//MongoClient.connect(url, function (err, db) {
-//    assert.equal(null, err);
-//    findAgg(db, function () {
-//        db.close();
-//    });
-//});
