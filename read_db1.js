@@ -22,7 +22,7 @@ io.on("connection", function (socket) {
     var interVal = setInterval(function () {
         var data = []
         var findRestaurants = function (db, callback) {
-            var cursor = db.collection('table_sessions').find({}, {_id: 0}).sort({$natural: -1}).limit(20)
+            var cursor = db.collection('table_sessions').find({}, {_id: 0}).sort({$natural: -1}).limit(30)
             cursor.each(function (err, doc) {
                 assert.equal(err, null);
                 if (doc != null) {

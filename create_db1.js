@@ -11,6 +11,7 @@ var moment = require('moment');
 var redis = require("redis");
 
 var PORT = 6379,
+    //HOST = '127.0.0.1',
     HOST = '127.0.0.1',
     client_Redis = redis.createClient(PORT, HOST);
 
@@ -18,7 +19,7 @@ var PORT = 6379,
 var insertDocument = function (db, callback) {
 
     //var vMinuteFormatter = moment.utc().subtract(5, 'minutes').format("YYYYMMDDHHmm")
-    var vMinuteFormatter = "201508110505"
+    var vMinuteFormatter = "201508110506"
     console.log(vMinuteFormatter)
     var redisSessionKey = vMinuteFormatter + ":session:"
     console.log(redisSessionKey)
@@ -30,10 +31,10 @@ var insertDocument = function (db, callback) {
 
             console.log(0)
 
-            db.collection('table_sessions').insertOne({
+            db.collection('table_sessions_mm').insertOne({
                 "_id": vMinuteFormatter,
                 "date_min": vMinuteFormatter,
-                "value": 2
+                "value": 0
             }, function (err, result) {
                 assert.equal(err, null);
                 console.log("Inserted a document null(0).");
@@ -44,7 +45,7 @@ var insertDocument = function (db, callback) {
 
             console.log(reply)
 
-            db.collection('table_sessions').insertOne({
+            db.collection('table_sessions_mm').insertOne({
                 "_id": vMinuteFormatter,
                 "date_min": vMinuteFormatter,
                 "value": parseInt(reply)
@@ -56,15 +57,16 @@ var insertDocument = function (db, callback) {
 
         }
 
-        client_Redis.quit();
+        //client_Redis.quit();
 
     })
 
 };
-
-MongoClient.connect(url, function (err, db) {
-    assert.equal(null, err);
-    insertDocument(db, function () {
-        db.close();
-    });
-})
+var interVal = setInterval(function () {
+    MongoClient.connect(url, function (err, db) {
+        assert.equal(null, err);
+        insertDocument(db, function () {
+            db.close();
+        });
+    })
+},60000)
