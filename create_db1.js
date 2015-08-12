@@ -12,14 +12,14 @@ var redis = require("redis");
 
 var PORT = 6379,
     //HOST = '127.0.0.1',
-    HOST = '127.0.0.1',
+    HOST = '10.0.0.26',
     client_Redis = redis.createClient(PORT, HOST);
 
 
 var insertDocument = function (db, callback) {
 
-    //var vMinuteFormatter = moment.utc().subtract(5, 'minutes').format("YYYYMMDDHHmm")
-    var vMinuteFormatter = "201508110506"
+    var vMinuteFormatter = moment.utc().subtract(5, 'minutes').format("YYYYMMDDHHmm")
+    //var vMinuteFormatter = "201508110506"
     console.log(vMinuteFormatter)
     var redisSessionKey = vMinuteFormatter + ":session:"
     console.log(redisSessionKey)
