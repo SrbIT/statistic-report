@@ -82,9 +82,6 @@ io.on("connection", function (socket) {
                 db.close();
             });
         });
-
-
-
         socket.emit("echo1", data)
 
     });
