@@ -18,7 +18,7 @@
 <script>
 
     var socket = io.connect("http://23.99.96.65:8082")
-//    var socket = io.connect("http://localhost:3000");
+    //    var socket = io.connect("http://localhost:3000");
 
     socket.emit("message1", "Hello 1");
 
@@ -60,10 +60,11 @@
                 console.log(minute)
                 var date = new Date(year, month, day, hour, minute)
                 console.log(date)
+                console.log(date.setHours(date.getHours() + 7))
 
 
 //                dataX.push(data[keys[i]].date_min)
-                dataX.push(date)
+                dataX.push(date.getHours() + ":" +   date.getMinutes())
 
 //                console.log(data[keys[i]].value)
                 dataSubY.push(data[keys[i]].value);
