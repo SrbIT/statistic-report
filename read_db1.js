@@ -16,6 +16,16 @@ var app = express();
 var server = http.createServer(app);
 var io = socketio.listen(server);
 
+app.use(express.static("public"));
+app.use(express.static(__dirname));
+
+app.get('/sta', function (req, res) {
+    console.log("STA")
+
+    res.sendFile(path.join(__dirname + '/index.html'));
+
+});
+
 var url = 'mongodb://localhost:27017/db_la';
 
 io.on("connection", function (socket) {
