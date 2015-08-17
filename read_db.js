@@ -14,9 +14,11 @@ var findRestaurants = function (db, callback) {
     //var cursor = db.collection('table_sessions').find({}, {_id: 0}).sort( { date_min: 1 } )
     //var cursor = db.collection('table_sessions').find({}, {_id: 0}).limit( 5 ).sort( { date_min: 1 } )
     //var cursor = db.collection('table_sessions').find().sort( { date_min: 1 }).limit( 5 )
-    var cursor = db.collection('table_sessions').find({}, {_id: 0}).sort({$natural: -1}).limit(5)
+    //var cursor = db.collection('table_sessions').find({}, {_id: 0}).sort({$natural: -1}).limit(5)
     //var cursor = db.collection('table_sessions').find({$query:{},$orderby : {$natural : -1}}).limit(5).sort({$natural: -1})
     //var cursor = db.collection('table_sessions').find({}, { date_min: { $slice: 7 } } )
+
+    var cursor = db.collection('table_product_mm').find( )
     var data = []
     //console.log(cursor)
     console.log("_______________")
@@ -24,10 +26,10 @@ var findRestaurants = function (db, callback) {
         assert.equal(err, null);
         if (doc != null) {
             console.dir(doc);
-            data.push(doc);
+            //data.push(doc);
 
         } else {
-            console.log(data)
+            //console.log(data)
             callback();
         }
         //
