@@ -14,9 +14,17 @@
 
 
 <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-
+<select id="test">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+</select>
 <script>
-
+$(function() {
+    $('#test').change(function (event) {
+       console.log($(this).val());
+    });
+})
     var socket = io.connect("http://23.99.96.65:8082")
     //    var socket = io.connect("http://localhost:3000");
 
@@ -81,6 +89,7 @@
             }]
 
             $('#container').highcharts({
+
                 title: {
                     text: 'Monthly Average Session',
                     x: -20 //center

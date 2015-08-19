@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.highcharts.com/stock/highstock.js"></script>
+    <script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
+
+</head>
+<body>
+
+<div id="container" style="height: 400px; min-width: 310px"></div>
+
+<script>
+
+    $(function () {
+
+        var data1 = [[1435708800000, 126.60],
+            [1435795200000, 126.44],
+            [1436140800000, 126.00],
+            [1436227200000, 125.69],
+            [1436313600000, 122.57],
+            [1436400000000, 120.07],
+            [1436486400000, 123.28],
+            [1436745600000, 125.66],
+            [1436832000000, 125.61],
+            [1436918400000, 126.82],
+            [1437004800000, 128.51],
+            [1437091200000, 129.62],
+            [1437350400000, 132.07],
+            [1437436800000, 130.75],
+            [1437523200000, 125.22],
+            [1437609600000, 125.16],
+            [1437696000000, 124.50],
+            [1437955200000, 122.77],
+            [1438041600000, 123.38],
+            [1438128000000, 122.99],
+            [1438214400000, 122.37],
+            [1438300800000, 121.30]]
+
+
+        // Create the chart
+        $('#container').highcharts('StockChart', {
+
+
+            rangeSelector: {
+                selected: 1
+            },
+
+            title: {
+                text: 'AAPL Stock Price'
+            },
+
+            series: [{
+                name: 'AAPL Stock Price',
+                data: data1,
+                marker: {
+                    enabled: true,
+                    radius: 3
+                },
+                shadow: true,
+                tooltip: {
+                    valueDecimals: 2
+                }
+            }]
+        });
+
+    });
+
+
+</script>
+
+
+</body>
+</html>

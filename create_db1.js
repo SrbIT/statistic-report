@@ -121,7 +121,7 @@ var insertDocumentISP = function (db, callback) {
 
     var vMinuteFormatter = moment.utc().subtract(5, 'minutes').format("YYYYMMDDHHmm")
     //var vMinuteFormatter = "201508110506"
-    var redisISPKey = vMinuteFormatter + ":isp"
+    var redisISPKey = vMinuteFormatter + ":isp:"
 
     console.log(redisISPKey)
 
@@ -176,7 +176,7 @@ var insertDocumentInfo = function (db, callback) {
 
     var vMinuteFormatter = moment.utc().subtract(5, 'minutes').format("YYYYMMDDHHmm")
     //var vMinuteFormatter = "201508110506"
-    var redisInfoKey = vMinuteFormatter + ":info"
+    var redisInfoKey = vMinuteFormatter + ":info:"
 
     console.log(redisInfoKey)
 
@@ -231,7 +231,7 @@ var insertDocumentDevice = function (db, callback) {
 
     var vMinuteFormatter = moment.utc().subtract(5, 'minutes').format("YYYYMMDDHHmm")
     //var vMinuteFormatter = "201508110506"
-    var redisDeviceKey = vMinuteFormatter + ":device"
+    var redisDeviceKey = vMinuteFormatter + ":device:"
 
     console.log(redisDeviceKey)
 
@@ -285,7 +285,7 @@ var insertDocumentProfile = function (db, callback) {
 
     var vMinuteFormatter = moment.utc().subtract(5, 'minutes').format("YYYYMMDDHHmm")
     //var vMinuteFormatter = "201508110506"
-    var redisProfileKey = vMinuteFormatter + ":profile"
+    var redisProfileKey = vMinuteFormatter + ":profile:"
 
     console.log(redisProfileKey)
 
