@@ -64,9 +64,28 @@ io.on("connection", function (socket) {
         getData('tb_sessions_mm', "mm", data)
 
     });
+
     socket.on("message5m", function (data) {
 
         getData('tb_sessions_5m', "5m", data)
+
+    });
+
+    socket.on("messageHH", function (data) {
+
+        getData('tb_sessions_HH', "HH", data)
+
+    });
+
+    socket.on("messagedd", function (data) {
+
+        getData('tb_sessions_dd', "dd", data)
+
+    });
+
+    socket.on("messageMM", function (data) {
+
+        getData('tb_sessions_MM', "MM", data)
 
     });
 
