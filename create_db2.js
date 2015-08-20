@@ -109,8 +109,7 @@ var insertDocumentArray = function (paraCollection,
         vTimeFormatter = moment.utc().format(paraTimeFormat).toString() + (Math.floor(moment().utc().minutes() / 5) + 1).toString();
         console.log(vTimeFormatter)
         redisKey = vTimeFormatter + paraObject
-    }
-    else if (paraTime === 'HH') {
+    } else if (paraTime === 'HH') {
         vTimeFormatter = moment.utc().subtract(1, 'hours').format(paraTimeFormat)
         redisKey = vTimeFormatter + paraObject
     } else if (paraTime === 'dd') {

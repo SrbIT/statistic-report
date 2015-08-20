@@ -29,10 +29,11 @@ app.get('/sta', function (req, res) {
 var url = 'mongodb://localhost:27017/db_la';
 
 io.on("connection", function (socket) {
-    var interVal = setInterval(function () {
+
+    socket.on("message1m", function (data) {
         var data = []
         var findRestaurants = function (db, callback) {
-            var cursor = db.collection('table_sessions_mm').find({}, {_id: 0}).sort({$natural: -1}).limit(30)
+            var cursor = db.collection('tb_sessions_mm').find({}, {_id: 0}).sort({$natural: -1}).limit(30)
             cursor.each(function (err, doc) {
                 assert.equal(err, null);
                 if (doc != null) {
@@ -40,35 +41,7 @@ io.on("connection", function (socket) {
                     data.push(doc);
 
                 } else {
-                    socket.emit("echo1", data)
-                    console.log(data)
-                    callback();
-                }
-            });
-
-        };
-
-        MongoClient.connect(url, function (err, db) {
-            assert.equal(null, err);
-            findRestaurants(db, function () {
-                db.close();
-            });
-        });
-
-    }, 5000);
-
-    socket.on("message1", function (data) {
-        var data = []
-        var findRestaurants = function (db, callback) {
-            var cursor = db.collection('table_sessions_mm').find({}, {_id: 0}).sort({$natural: -1}).limit(30)
-            cursor.each(function (err, doc) {
-                assert.equal(err, null);
-                if (doc != null) {
-                    console.dir(doc);
-                    data.push(doc);
-
-                } else {
-                    socket.emit("echo1", data)
+                    socket.emit("1m", data)
                     console.log(data)
                     callback();
                 }
@@ -86,10 +59,36 @@ io.on("connection", function (socket) {
 
     });
 
-    socket.on('disconnect', function () {
-        clearInterval(interVal)
-        console.log("Disconnect")
+    socket.on("message5m", function (data) {
+        var data = []
+        var findRestaurants = function (db, callback) {
+            var cursor = db.collection('tb_sessions_5m').find({}, {_id: 0}).sort({$natural: -1}).limit(30)
+            cursor.each(function (err, doc) {
+                assert.equal(err, null);
+                if (doc != null) {
+                    console.dir(doc);
+                    data.push(doc);
+
+                } else {
+                    socket.emit("5m", data)
+                    console.log(data)
+                    callback();
+                }
+            });
+
+        };
+
+        MongoClient.connect(url, function (err, db) {
+            assert.equal(null, err);
+            findRestaurants(db, function () {
+                db.close();
+            });
+        });
+        //socket.emit("echo1", data)
+
     });
+
+
 });
 
 server.listen(3000)
