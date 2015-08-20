@@ -30,7 +30,12 @@ var insertDocumentSession = function (paraCollection,
         vTimeFormatter = moment.utc().subtract(5, 'minutes').format(paraTimeFormat)
         //var vMinuteFormatter = "201508110506"
         redisKey = vTimeFormatter + paraObject
-    } else if (paraTime === 'HH') {
+    } else if (paraTime === '5m') {
+        vTimeFormatter = moment.utc().format(paraTimeFormat).toString() + (moment().utc().minutes() / 5).toString();
+        console.log(vTimeFormatter)
+        redisKey = vTimeFormatter + paraObject
+    }
+    else if (paraTime === 'HH') {
         vTimeFormatter = moment.utc().subtract(1, 'hours').format(paraTimeFormat)
         redisKey = vTimeFormatter + paraObject
     } else if (paraTime === 'dd') {
@@ -100,7 +105,12 @@ var insertDocumentArray = function (paraCollection,
         vTimeFormatter = moment.utc().subtract(5, 'minutes').format(paraTimeFormat)
         //var vMinuteFormatter = "201508110506"
         redisKey = vTimeFormatter + paraObject
-    } else if (paraTime === 'HH') {
+    } else if (paraTime === '5m') {
+        vTimeFormatter = moment.utc().format(paraTimeFormat).toString() + (Math.ceil(moment().utc().minutes() / 5)).toString();
+        console.log(vTimeFormatter)
+        redisKey = vTimeFormatter + paraObject
+    }
+    else if (paraTime === 'HH') {
         vTimeFormatter = moment.utc().subtract(1, 'hours').format(paraTimeFormat)
         redisKey = vTimeFormatter + paraObject
     } else if (paraTime === 'dd') {
@@ -255,6 +265,101 @@ var interValmm = setInterval(function () {
             paraTimeFormat,
             ":info:",
             "_info_mm",
+            paraTime,
+            db, function () {
+                //db.close();
+            });
+
+    })
+
+
+}, 60000)
+
+var interVal5m = setInterval(function () {
+
+    // Session
+    MongoClient.connect(url, function (err, db) {
+        assert.equal(null, err);
+
+        var paraTimeFormat = "YYYYMMDDHH",
+            paraTime = '5m'
+
+        insertDocumentSession('tb_sessions_5m',
+            paraTimeFormat,
+            ":session:",
+            "_sessions_5m",
+            paraTime,
+            db, function () {
+                //db.close();
+            });
+
+        insertDocumentSession('tb_session_hdo_5m',
+            paraTimeFormat,
+            ":session:hdo:",
+            "_session_hdo_5m",
+            paraTime,
+            db, function () {
+                //db.close();
+            });
+
+        insertDocumentSession('tb_session_hdviet_5m',
+            paraTimeFormat,
+            ":session:hdviet:",
+            "_session_hdviet_5m",
+            paraTime,
+            db, function () {
+                //db.close();
+            });
+
+        insertDocumentSession('tb_session_vip_hdviet_5m',
+            paraTimeFormat,
+            ":session:vip_hdviet:",
+            "_session_vip_hdviet_5m",
+            paraTime,
+            db, function () {
+                //db.close();
+            });
+
+        insertDocumentArray('tb_product_5m',
+            paraTimeFormat,
+            ":product:",
+            "_product_5m",
+            paraTime,
+            db, function () {
+                //db.close();
+            });
+
+        insertDocumentArray('tb_profile_5m',
+            paraTimeFormat,
+            ":profile:",
+            "_profile_5m",
+            paraTime,
+            db, function () {
+                //db.close();
+            });
+
+        insertDocumentArray('tb_isp_5m',
+            paraTimeFormat,
+            ":isp:",
+            "_isp_5m",
+            paraTime,
+            db, function () {
+                //db.close();
+            });
+
+        insertDocumentArray('tb_device_5m',
+            paraTimeFormat,
+            ":device:",
+            "_device_5m",
+            paraTime,
+            db, function () {
+                //db.close();
+            });
+
+        insertDocumentArray('tb_info_5m',
+            paraTimeFormat,
+            ":info:",
+            "_info_5m",
             paraTime,
             db, function () {
                 //db.close();
