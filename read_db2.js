@@ -30,19 +30,21 @@ var url = 'mongodb://localhost:27017/db_la';
 
 io.on("connection", function (socket) {
 
-    socket.on("message1m", function (data) {
-        var data = []
+    function getData(paraCollection,
+                     paraChannel,
+                     data) {
+        var dataA = []
         var findRestaurants = function (db, callback) {
-            var cursor = db.collection('tb_sessions_mm').find({}, {_id: 0}).sort({$natural: -1}).limit(30)
+            var cursor = db.collection(paraCollection).find({}, {_id: 0}).sort({$natural: -1}).limit(30)
             cursor.each(function (err, doc) {
                 assert.equal(err, null);
                 if (doc != null) {
                     console.dir(doc);
-                    data.push(doc);
+                    dataA.push(doc);
 
                 } else {
-                    socket.emit("1m", data)
-                    console.log(data)
+                    socket.emit(paraChannel, dataA)
+                    console.log(dataA)
                     callback();
                 }
             });
@@ -55,39 +57,18 @@ io.on("connection", function (socket) {
                 db.close();
             });
         });
-        //socket.emit("echo1", data)
+    }
+
+    socket.on("messagemm", function (data) {
+
+        getData('tb_sessions_mm', "mm", data)
 
     });
-
     socket.on("message5m", function (data) {
-        var data = []
-        var findRestaurants = function (db, callback) {
-            var cursor = db.collection('tb_sessions_5m').find({}, {_id: 0}).sort({$natural: -1}).limit(30)
-            cursor.each(function (err, doc) {
-                assert.equal(err, null);
-                if (doc != null) {
-                    console.dir(doc);
-                    data.push(doc);
 
-                } else {
-                    socket.emit("5m", data)
-                    console.log(data)
-                    callback();
-                }
-            });
-
-        };
-
-        MongoClient.connect(url, function (err, db) {
-            assert.equal(null, err);
-            findRestaurants(db, function () {
-                db.close();
-            });
-        });
-        //socket.emit("echo1", data)
+        getData('tb_sessions_5m', "5m", data)
 
     });
-
 
 });
 

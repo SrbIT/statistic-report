@@ -15,24 +15,30 @@
     <option value="1">1m</option>
     <option value="2">5m</option>
     <option value="3">1H</option>
-    <option value="3">1d</option>
-    <option value="3">1M</option>
+    <option value="4">1d</option>
+    <option value="5">1M</option>
 </select>
 
 <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
 <script>
-        var socket = io.connect("http://23.99.96.65:8082")
-//    var socket = io.connect("http://localhost:3000");
+    var socket = io.connect("http://23.99.96.65:8082")
+    //    var socket = io.connect("http://localhost:3000");
 
     $(function () {
         $('#timeIntervall').change(function (event) {
             console.log($(this).val());
 
             if ($(this).val() == 1) {
-                socket.emit("message1m", "Hello 1");
+                socket.emit("messagemm", "mm");
             } else if ($(this).val() == 2) {
-                socket.emit("message5m", "Hello 2");
+                socket.emit("message5m", "5m");
+            } else if ($(this).val() == 3) {
+                socket.emit("messageHH", "HH");
+            } else if ($(this).val() == 4) {
+                socket.emit("messagedd", "dd");
+            } else if ($(this).val() == 5) {
+                socket.emit("messageMM", "MM");
             }
 
 
@@ -99,13 +105,31 @@
     }
 
     $(function () {
-        socket.on("1m", function (data) {
+        socket.on("mm", function (data) {
             console.log(data)
             drawData(data)
 
         })
 
         socket.on("5m", function (data) {
+            console.log(data)
+            drawData(data)
+
+        })
+
+        socket.on("HH", function (data) {
+            console.log(data)
+            drawData(data)
+
+        })
+
+        socket.on("dd", function (data) {
+            console.log(data)
+            drawData(data)
+
+        })
+
+        socket.on("MM", function (data) {
             console.log(data)
             drawData(data)
 
