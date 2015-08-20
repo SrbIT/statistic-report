@@ -31,7 +31,7 @@ var insertDocumentSession = function (paraCollection,
         //var vMinuteFormatter = "201508110506"
         redisKey = vTimeFormatter + paraObject
     } else if (paraTime === '5m') {
-        vTimeFormatter = moment.utc().format(paraTimeFormat).toString() + (moment().utc().minutes() / 5).toString();
+        vTimeFormatter = moment.utc().format(paraTimeFormat).toString() + (Math.floor(moment().utc().minutes() / 5) + 1).toString();
         console.log(vTimeFormatter)
         redisKey = vTimeFormatter + paraObject
     }
@@ -106,7 +106,7 @@ var insertDocumentArray = function (paraCollection,
         //var vMinuteFormatter = "201508110506"
         redisKey = vTimeFormatter + paraObject
     } else if (paraTime === '5m') {
-        vTimeFormatter = moment.utc().format(paraTimeFormat).toString() + (Math.ceil(moment().utc().minutes() / 5)).toString();
+        vTimeFormatter = moment.utc().format(paraTimeFormat).toString() + (Math.floor(moment().utc().minutes() / 5) + 1).toString();
         console.log(vTimeFormatter)
         redisKey = vTimeFormatter + paraObject
     }
@@ -368,7 +368,7 @@ var interVal5m = setInterval(function () {
     })
 
 
-}, 60000)
+}, 300000)
 
 var interValHH = setInterval(function () {
 
