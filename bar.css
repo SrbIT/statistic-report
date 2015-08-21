@@ -1,0 +1,24 @@
+.barchar{
+    width: 49%;
+    float:left;
+}
+
+.barline{
+    width: 66%;
+    float:left;
+}
+
+.barpie{
+    width: 29%;
+    float:right;
+}
+
+.barchar2{
+    width: 49%;
+    float:left;
+}
+
+.barchar3{
+    width: 32%;
+    float:left;
+}

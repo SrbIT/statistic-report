@@ -1,5 +1,6 @@
 /**
  * Created by soh-l on 11/08/2015.
+ * Read data from redis to drop mogodb
  */
 
 var MongoClient = require('mongodb').MongoClient;
@@ -555,7 +556,6 @@ var interValdd = setInterval(function () {
             });
 
     })
-
 
 }, 86400000)
 

@@ -7,6 +7,7 @@
     <script src="http://code.highcharts.com/highcharts.js"></script>
     <script src="http://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
+    <link rel="stylesheet" type="text/css" href="bar.css">
 
 
 </head>
@@ -19,11 +20,43 @@
     <option value="5">1M</option>
 </select>
 
-<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div id="containerSession" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+
+<div style='width:100%'>
+    <div class="barchar2">
+        <div id="containerProduct" style="margin: 0 auto"></div>
+    </div>
+    <div class="barchar2">
+        <div id="containerProfile" style="margin: 0 auto"></div>
+    </div>
+
+</div>
+
+<div style='width:100%'>
+
+    <div class="barchar3">
+        <div id="containerISP" style="margin: 0 auto"></div>
+    </div>
+    <div class="barchar3">
+        <div id="containerDevice" style="margin: 0 auto"></div>
+    </div>
+    <div class="barchar3">
+        <div id="containerInfo" style="margin: 0 auto"></div>
+    </div>
+
+</div>
 
 <script>
-    var socket = io.connect("http://23.99.96.65:8082")
-    //    var socket = io.connect("http://localhost:3000");
+        var socket = io.connect("http://23.99.96.65:8082")
+//    var socket = io.connect("http://localhost:3000");
+
+    socket.emit("messagemm", "mm");
+    socket.emit("productmm", "mm");
+    socket.emit("profilemm", "mm");
+    socket.emit("ispmm", "mm");
+    socket.emit("devicemm", "mm");
+    socket.emit("infomm", "mm");
 
     $(function () {
         $('#timeIntervall').change(function (event) {
@@ -31,21 +64,46 @@
 
             if ($(this).val() == 1) {
                 socket.emit("messagemm", "mm");
+                socket.emit("productmm", "mm");
+                socket.emit("profilemm", "mm");
+                socket.emit("ispmm", "mm");
+                socket.emit("devicemm", "mm");
+                socket.emit("infomm", "mm");
             } else if ($(this).val() == 2) {
-                socket.emit("message5m", "5m");
+                socket.emit("message5m", "mm");
+                socket.emit("product5m", "mm");
+                socket.emit("profile5m", "mm");
+                socket.emit("isp5m", "mm");
+                socket.emit("device5m", "mm");
+                socket.emit("info5m", "mm");
             } else if ($(this).val() == 3) {
                 socket.emit("messageHH", "HH");
+                socket.emit("productHH", "HH");
+                socket.emit("profileHH", "HH");
+                socket.emit("ispHH", "HH");
+                socket.emit("deviceHH", "HH");
+                socket.emit("infoHH", "HH");
             } else if ($(this).val() == 4) {
                 socket.emit("messagedd", "dd");
+                socket.emit("productdd", "dd");
+                socket.emit("profiledd", "dd");
+                socket.emit("ispdd", "dd");
+                socket.emit("devicedd", "dd");
+                socket.emit("infodd", "dd");
             } else if ($(this).val() == 5) {
                 socket.emit("messageMM", "MM");
+                socket.emit("productMM", "MM");
+                socket.emit("profileMM", "MM");
+                socket.emit("ispMM", "MM");
+                socket.emit("deviceMM", "MM");
+                socket.emit("infoMM", "MM");
             }
 
 
         });
     })
 
-    function drawData(data) {
+    function drawData(data, setContainer) {
         var dataX = []
         var dataSubY = []
         var keys = Object.keys(data);
@@ -67,7 +125,7 @@
             data: dataSubY
         }]
 
-        $('#container').highcharts({
+        $(setContainer).highcharts({
 
             title: {
                 text: 'Monthly Average Session',
@@ -104,36 +162,76 @@
         });
     }
 
+    function drawDataArray(data, setContainer) {
+
+        var keys = Object.keys(data)
+        var array = data[keys[0]].value
+
+        console.log(array)
+        $(setContainer).highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'Product\'s HDViet'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    }
+                }
+            },
+            series: [{
+                name: "Brands",
+                colorByPoint: true,
+                data: array
+            }]
+        });
+    }
+
+    function socketData(paraChannel, setContainer) {
+
+        socket.on(paraChannel, function (data) {
+
+            console.log(data)
+            drawData(data, setContainer)
+
+        })
+
+    }
+
+    function socketDataArray(paraChannel, setContainer) {
+
+        socket.on(paraChannel, function (data) {
+
+            console.log(data)
+            drawDataArray(data, setContainer)
+
+        })
+
+    }
+
     $(function () {
-        socket.on("mm", function (data) {
-            console.log(data)
-            drawData(data)
 
-        })
-
-        socket.on("5m", function (data) {
-            console.log(data)
-            drawData(data)
-
-        })
-
-        socket.on("HH", function (data) {
-            console.log(data)
-            drawData(data)
-
-        })
-
-        socket.on("dd", function (data) {
-            console.log(data)
-            drawData(data)
-
-        })
-
-        socket.on("MM", function (data) {
-            console.log(data)
-            drawData(data)
-
-        })
+        socketData("sessions_time", '#containerSession')
+        socketDataArray("product_time", '#containerProduct')
+        socketDataArray("profile_time", '#containerProfile')
+        socketDataArray("isp_time", '#containerISP')
+        socketDataArray("device_time", '#containerDevice')
+        socketDataArray("info_time", '#containerInfo')
 
     });
 
