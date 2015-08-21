@@ -22,7 +22,7 @@ app.use(express.static(__dirname));
 app.get('/sta', function (req, res) {
     console.log("STA")
 
-    res.sendFile(path.join(__dirname + '/index.html'));
+    res.sendFile(path.join(__dirname + '/index9.html'));
 
 });
 
