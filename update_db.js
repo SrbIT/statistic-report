@@ -8,7 +8,7 @@ var ObjectId = require('mongodb').ObjectID;
 var url = 'mongodb://localhost:27017/db_la';
 
 var updateRestaurants = function(db, callback) {
-    db.collection('table_sessions').updateOne(
+    db.collection('tb_sessions').updateOne(
         { "date_min" : "201508100926" },
         {
             $set: { "value": 503 }

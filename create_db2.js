@@ -180,382 +180,103 @@ function ConvertData(reply) {
 
 }
 
-var interValmm = setInterval(function () {
+function InsertData(paraCollection,
+                    paraTimeFormat,
+                    paraObject,
+                    paraSuff,
+                    paraTime) {
 
-    // Session
     MongoClient.connect(url, function (err, db) {
         assert.equal(null, err);
-
-        var paraTimeFormat = "YYYYMMDDHHmm",
-            paraTime = 'mm'
-
-        insertDocumentSession('tb_sessions_mm',
+        insertDocumentSession(paraCollection,
             paraTimeFormat,
-            ":session:",
-            "_sessions_mm",
+            paraObject,
+            paraSuff,
             paraTime,
             db, function () {
-                //db.close();
+                db.close();
             });
-
-        insertDocumentSession('tb_session_hdo_mm',
-            paraTimeFormat,
-            ":session:hdo:",
-            "_session_hdo_mm",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentSession('tb_session_hdviet_mm',
-            paraTimeFormat,
-            ":session:hdviet:",
-            "_session_hdviet_mm",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentSession('tb_session_vip_hdviet_mm',
-            paraTimeFormat,
-            ":session:vip_hdviet:",
-            "_session_vip_hdviet_mm",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentArray('tb_product_mm',
-            paraTimeFormat,
-            ":product:",
-            "_product_mm",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentArray('tb_profile_mm',
-            paraTimeFormat,
-            ":profile:",
-            "_profile_mm",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentArray('tb_isp_mm',
-            paraTimeFormat,
-            ":isp:",
-            "_isp_mm",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentArray('tb_device_mm',
-            paraTimeFormat,
-            ":device:",
-            "_device_mm",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentArray('tb_info_mm',
-            paraTimeFormat,
-            ":info:",
-            "_info_mm",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
     })
+}
 
+
+function InsertDataArray(paraCollection,
+                         paraTimeFormat,
+                         paraObject,
+                         paraSuff,
+                         paraTime) {
+
+    MongoClient.connect(url, function (err, db) {
+        assert.equal(null, err);
+        insertDocumentArray(paraCollection,
+            paraTimeFormat,
+            paraObject,
+            paraSuff,
+            paraTime,
+            db, function () {
+                db.close();
+            });
+    })
+}
+
+var interValmm = setInterval(function () {
+
+    InsertData('tb_sessions_mm', "YYYYMMDDHHmm", ":session:", "_sessions_mm", "mm")
+    InsertData('tb_session_hdo_mm', "YYYYMMDDHHmm", ":session:hdo:", "_session_hdo_mm", "mm")
+    InsertData('tb_session_hdviet_mm', "YYYYMMDDHHmm", ":session:hdviet:", "_session_hdviet_mm", "mm")
+    InsertData('tb_session_vip_hdviet_mm', "YYYYMMDDHHmm", ":session:vip_hdviet:", "_session_vip_hdviet_mm", "mm")
+
+    InsertDataArray('tb_product_mm', "YYYYMMDDHHmm", ":product:", "_product_mm", "mm")
+    InsertDataArray('tb_profile_mm', "YYYYMMDDHHmm", ":profile:", "_profile_mm", "mm")
+    InsertDataArray('tb_isp_mm', "YYYYMMDDHHmm", ":isp:", "_isp_mm", "mm")
+    InsertDataArray('tb_device_mm', "YYYYMMDDHHmm", ":device:", "_device_mm", "mm")
+    InsertDataArray('tb_info_mm', "YYYYMMDDHHmm", ":info:", "_info_mm", "mm")
 
 }, 60000)
 
 var interVal5m = setInterval(function () {
 
-    // Session
-    MongoClient.connect(url, function (err, db) {
-        assert.equal(null, err);
+    InsertData('tb_sessions_5m', "YYYYMMDDHH", ":session:", "_sessions_5m", "5m")
+    InsertData('tb_session_hdo_5m', "YYYYMMDDHH", ":session:hdo:", "_session_hdo_5m", "5m")
+    InsertData('tb_session_hdviet_5m', "YYYYMMDDHH", ":session:hdviet:", "_session_hdviet_5m", "5m")
+    InsertData('tb_session_vip_hdviet_5m', "YYYYMMDDHH", ":session:vip_hdviet:", "_session_vip_hdviet_mm", "mm")
 
-        var paraTimeFormat = "YYYYMMDDHH",
-            paraTime = '5m'
-
-        insertDocumentSession('tb_sessions_5m',
-            paraTimeFormat,
-            ":session:",
-            "_sessions_5m",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentSession('tb_session_hdo_5m',
-            paraTimeFormat,
-            ":session:hdo:",
-            "_session_hdo_5m",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentSession('tb_session_hdviet_5m',
-            paraTimeFormat,
-            ":session:hdviet:",
-            "_session_hdviet_5m",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentSession('tb_session_vip_hdviet_5m',
-            paraTimeFormat,
-            ":session:vip_hdviet:",
-            "_session_vip_hdviet_5m",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentArray('tb_product_5m',
-            paraTimeFormat,
-            ":product:",
-            "_product_5m",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentArray('tb_profile_5m',
-            paraTimeFormat,
-            ":profile:",
-            "_profile_5m",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentArray('tb_isp_5m',
-            paraTimeFormat,
-            ":isp:",
-            "_isp_5m",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentArray('tb_device_5m',
-            paraTimeFormat,
-            ":device:",
-            "_device_5m",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentArray('tb_info_5m',
-            paraTimeFormat,
-            ":info:",
-            "_info_5m",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-    })
-
+    InsertDataArray('tb_product_5m', "YYYYMMDDHH", ":product:", "_product_5m", "5m")
+    InsertDataArray('tb_profile_5m', "YYYYMMDDHH", ":profile:", "_profile_5m", "5m")
+    InsertDataArray('tb_isp_5m', "YYYYMMDDHH", ":isp:", "_isp_5m", "5m")
+    InsertDataArray('tb_device_5m', "YYYYMMDDHH", ":device:", "_device_5m", "5m")
+    InsertDataArray('tb_info_5m', "YYYYMMDDHH", ":info:", "_info_5m", "5m");
 
 }, 300000)
 
 var interValHH = setInterval(function () {
 
-    // Session
-    MongoClient.connect(url, function (err, db) {
-        assert.equal(null, err);
+    InsertData('tb_sessions_HH', "YYYYMMDDHH", ":session:", "_sessions_5m", "HH")
+    InsertData('tb_session_hdo_HH', "YYYYMMDDHH", ":session:hdo:", "_session_hdo_5m", "HH")
+    InsertData('tb_session_hdviet_HH', "YYYYMMDDHH", ":session:hdviet:", "_session_hdviet_5m", "HH")
+    InsertData('tb_session_vip_hdviet_HH', "YYYYMMDDHH", ":session:vip_hdviet:", "_session_vip_hdviet_mm", "HH")
 
-        var paraTimeFormat = "YYYYMMDDHH",
-            paraTime = 'HH'
-
-        insertDocumentSession('tb_sessions_HH',
-            paraTimeFormat,
-            ":session:",
-            "_sessions_HH",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentSession('tb_session_hdo_HH',
-            paraTimeFormat,
-            ":session:hdo:",
-            "_session_hdo_HH",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentSession('tb_session_hdviet_HH',
-            paraTimeFormat,
-            ":session:hdviet:",
-            "_session_hdviet_HH",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentSession('tb_session_vip_hdviet_HH',
-            paraTimeFormat,
-            ":session:vip_hdviet:",
-            "_session_vip_hdviet_HH",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentArray('tb_product_HH',
-            paraTimeFormat,
-            ":product:",
-            "_product_HH",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentArray('tb_profile_HH',
-            paraTimeFormat,
-            ":profile:",
-            "_profile_HH",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentArray('tb_isp_HH',
-            paraTimeFormat,
-            ":isp:",
-            "_isp_HH",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentArray('tb_device_HH',
-            paraTimeFormat,
-            ":device:",
-            "_device_HH",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentArray('tb_info_HH',
-            paraTimeFormat,
-            ":info:",
-            "_info_HH",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-    })
-
+    InsertDataArray('tb_product_HH', "YYYYMMDDHH", ":product:", "_product_HH", "HH")
+    InsertDataArray('tb_profile_HH', "YYYYMMDDHH", ":profile:", "_profile_HH", "HH")
+    InsertDataArray('tb_isp_HH', "YYYYMMDDHH", ":isp:", "_isp_HH", "HH")
+    InsertDataArray('tb_device_HH', "YYYYMMDDHH", ":device:", "_device_HH", "HH")
+    InsertDataArray('tb_info_HH', "YYYYMMDDHH", ":info:", "_info_HH", "HH");
 
 }, 3600000)
 
 var interValdd = setInterval(function () {
 
-    // Session
-    MongoClient.connect(url, function (err, db) {
-        assert.equal(null, err);
 
-        var paraTimeFormat = "YYYYMMDD",
-            paraTime = 'dd'
+    InsertData('tb_sessions_dd', "YYYYMMDD", ":session:", "_sessions_dd", "dd")
+    InsertData('tb_session_hdo_dd', "YYYYMMDD", ":session:hdo:", "_session_hdo_dd", "dd")
+    InsertData('tb_session_hdviet_dd', "YYYYMMDD", ":session:hdviet:", "_session_hdviet_dd", "dd")
+    InsertData('tb_session_vip_hdviet_dd', "YYYYMMDD", ":session:vip_hdviet:", "_session_vip_hdviet_dd", "dd")
 
-        insertDocumentSession('tb_sessions_dd',
-            paraTimeFormat,
-            ":session:",
-            "_sessions_dd",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentSession('tb_session_hdo_dd',
-            paraTimeFormat,
-            ":session:hdo:",
-            "_session_hdo_dd",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentSession('tb_session_hdviet_dd',
-            paraTimeFormat,
-            ":session:hdviet:",
-            "_session_hdviet_dd",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentSession('tb_session_vip_hdviet_dd',
-            paraTimeFormat,
-            ":session:vip_hdviet:",
-            "_session_vip_hdviet_dd",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentArray('tb_product_dd',
-            paraTimeFormat,
-            ":product:",
-            "_product_dd",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentArray('tb_profile_dd',
-            paraTimeFormat,
-            ":profile:",
-            "_profile_dd",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentArray('tb_isp_dd',
-            paraTimeFormat,
-            ":isp:",
-            "_isp_dd",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentArray('tb_device_dd',
-            paraTimeFormat,
-            ":device:",
-            "_device_dd",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-        insertDocumentArray('tb_info_dd',
-            paraTimeFormat,
-            ":info:",
-            "_info_dd",
-            paraTime,
-            db, function () {
-                //db.close();
-            });
-
-    })
+    InsertDataArray('tb_product_dd', "YYYYMMDD", ":product:", "_product_dd", "dd")
+    InsertDataArray('tb_profile_dd', "YYYYMMDD", ":profile:", "_profile_dd", "dd")
+    InsertDataArray('tb_isp_dd', "YYYYMMDD", ":isp:", "_isp_dd", "dd")
+    InsertDataArray('tb_device_dd', "YYYYMMDD", ":device:", "_device_dd", "dd")
+    InsertDataArray('tb_info_dd', "YYYYMMDD", ":info:", "_info_dd", "dd");
 
 }, 86400000)
 
