@@ -35,8 +35,7 @@ var insertDocumentSession = function (paraCollection,
         vTimeFormatter = moment.utc().format(paraTimeFormat).toString() + (Math.floor(moment().utc().minutes() / 5) + 1).toString();
         console.log(vTimeFormatter)
         redisKey = vTimeFormatter + paraObject
-    }
-    else if (paraTime === 'HH') {
+    } else if (paraTime === 'HH') {
         vTimeFormatter = moment.utc().subtract(1, 'hours').format(paraTimeFormat)
         redisKey = vTimeFormatter + paraObject
     } else if (paraTime === 'dd') {
@@ -239,7 +238,7 @@ var interVal5m = setInterval(function () {
     InsertData('tb_sessions_5m', "YYYYMMDDHH", ":session:", "_sessions_5m", "5m")
     InsertData('tb_session_hdo_5m', "YYYYMMDDHH", ":session:hdo:", "_session_hdo_5m", "5m")
     InsertData('tb_session_hdviet_5m', "YYYYMMDDHH", ":session:hdviet:", "_session_hdviet_5m", "5m")
-    InsertData('tb_session_vip_hdviet_5m', "YYYYMMDDHH", ":session:vip_hdviet:", "_session_vip_hdviet_mm", "mm")
+    InsertData('tb_session_vip_hdviet_5m', "YYYYMMDDHH", ":session:vip_hdviet:", "_session_vip_hdviet_5m", "5m")
 
     InsertDataArray('tb_product_5m', "YYYYMMDDHH", ":product:", "_product_5m", "5m")
     InsertDataArray('tb_profile_5m', "YYYYMMDDHH", ":profile:", "_profile_5m", "5m")
@@ -251,10 +250,10 @@ var interVal5m = setInterval(function () {
 
 var interValHH = setInterval(function () {
 
-    InsertData('tb_sessions_HH', "YYYYMMDDHH", ":session:", "_sessions_5m", "HH")
-    InsertData('tb_session_hdo_HH', "YYYYMMDDHH", ":session:hdo:", "_session_hdo_5m", "HH")
-    InsertData('tb_session_hdviet_HH', "YYYYMMDDHH", ":session:hdviet:", "_session_hdviet_5m", "HH")
-    InsertData('tb_session_vip_hdviet_HH', "YYYYMMDDHH", ":session:vip_hdviet:", "_session_vip_hdviet_mm", "HH")
+    InsertData('tb_sessions_HH', "YYYYMMDDHH", ":session:", "_sessions_HH", "HH")
+    InsertData('tb_session_hdo_HH', "YYYYMMDDHH", ":session:hdo:", "_session_hdo_HH", "HH")
+    InsertData('tb_session_hdviet_HH', "YYYYMMDDHH", ":session:hdviet:", "_session_hdviet_HH", "HH")
+    InsertData('tb_session_vip_hdviet_HH', "YYYYMMDDHH", ":session:vip_hdviet:", "_session_vip_hdviet_HH", "HH")
 
     InsertDataArray('tb_product_HH', "YYYYMMDDHH", ":product:", "_product_HH", "HH")
     InsertDataArray('tb_profile_HH', "YYYYMMDDHH", ":profile:", "_profile_HH", "HH")
