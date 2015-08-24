@@ -1,6 +1,5 @@
 /**
- * Created by soh-l on 11/08/2015.
- * Read data from redis to drop mogodb
+ * Created by soh-l on 10/08/2015.
  */
 
 var MongoClient = require('mongodb').MongoClient;
@@ -18,37 +17,39 @@ var PORT = 6379,
 
     client_Redis = redis.createClient(PORT, HOST);
 
+
+function ConvertData(reply) {
+
+    var keys = Object.keys(reply);
+    var data = [];
+    for (var i = 0; i < keys.length; i++) {
+        var z = {};
+        z.name = keys[i];
+        z.y = parseInt(reply[keys[i]]);
+        data.push(z);
+    }
+    return data
+
+}
+
 var updateRestaurants = function (paraCollection,
                                   paraTimeFormat,
                                   paraObject,
-                                  paraSuff,
                                   paraTime,
                                   paraI,
                                   db, callback) {
 
 
     var vTimeFormatter, redisKey
-
     if (paraTime === 'mm') {
         vTimeFormatter = moment.utc().subtract(paraI, 'minutes').format(paraTimeFormat)
-        console.log(vTimeFormatter)
-
         redisKey = vTimeFormatter + paraObject
-        console.log(redisKey)
-
     } else if (paraTime === 'HH') {
         vTimeFormatter = moment.utc().subtract(paraI, 'hours').format(paraTimeFormat)
-        console.log(vTimeFormatter)
-
         redisKey = vTimeFormatter + paraObject
-        console.log(redisKey)
-
     } else if (paraTime === 'dd') {
         vTimeFormatter = moment.utc().subtract(paraI, 'days').format(paraTimeFormat)
-        console.log(vTimeFormatter)
-
         redisKey = vTimeFormatter + paraObject
-        console.log(redisKey)
     }
 
     client_Redis.hlen(redisKey, function (err, reply) {
@@ -77,10 +78,57 @@ var updateRestaurants = function (paraCollection,
 
 };
 
+var updateRestaurantsArray = function (paraCollection,
+                                       paraTimeFormat,
+                                       paraObject,
+                                       paraTime,
+                                       paraI,
+                                       db, callback) {
+
+    var vTimeFormatter, redisKey
+
+    if (paraTime === 'mm') {
+        vTimeFormatter = moment.utc().subtract(paraI, 'minutes').format(paraTimeFormat)
+        redisKey = vTimeFormatter + paraObject
+    } else if (paraTime === 'HH') {
+        vTimeFormatter = moment.utc().subtract(paraI, 'hours').format(paraTimeFormat)
+        redisKey = vTimeFormatter + paraObject
+    } else if (paraTime === 'dd') {
+        vTimeFormatter = moment.utc().subtract(paraI, 'days').format(paraTimeFormat)
+        redisKey = vTimeFormatter + paraObject
+    }
+
+    client_Redis.hgetall(redisKey, function (err, reply) {
+
+        if (reply === null) {
+
+            console.log("Error: " + err)
+            console.log("01")
+
+        } else {
+
+            var data = ConvertData(reply)
+
+            db.collection(paraCollection).updateOne(
+                {"date_min": vTimeFormatter},
+                {
+                    $set: {"value": data}
+                },
+                {upsert: true}, function (err, results) {
+                    //console.log(results);
+                    callback();
+                });
+
+        }
+
+    })
+
+};
+
+
 function UpdateData(paraCollection,
                     paraTimeFormat,
                     paraObject,
-                    paraSuff,
                     paraTime,
                     paraI) {
 
@@ -90,7 +138,6 @@ function UpdateData(paraCollection,
         updateRestaurants(paraCollection,
             paraTimeFormat,
             paraObject,
-            paraSuff,
             paraTime,
             paraI,
             db, function () {
@@ -100,33 +147,61 @@ function UpdateData(paraCollection,
 
 }
 
-function ConvertData(reply) {
+function UpdateDataArray(paraCollection,
+                         paraTimeFormat,
+                         paraObject,
+                         paraTime,
+                         paraI) {
 
-    var keys = Object.keys(reply);
-    var data = [];
-    for (var i = 0; i < keys.length; i++) {
-        var z = {};
-        z.name = keys[i];
-        z.y = parseInt(reply[keys[i]]);
-        data.push(z);
-    }
-    return data
+    MongoClient.connect(url, function (err, db) {
+        assert.equal(null, err);
+
+        updateRestaurantsArray(paraCollection,
+            paraTimeFormat,
+            paraObject,
+            paraTime,
+            paraI,
+            db, function () {
+                db.close();
+            });
+    });
 
 }
 
-var interValUpdate = setInterval(function () {
+var interValmm = setInterval(function () {
 
-    for (var i = 35; i >= 5; i--) {
-        UpdateData('tb_sessions_mm', "YYYYMMDDHHmm", ":session:", "_sessions_mm", "mm", i)
+    for (var i = 10; i >= 5; i--) {
+
+        UpdateData('tb_sessions_mm', "YYYYMMDDHHmm", ":session:", "mm", i)
+
+        UpdateDataArray('tb_product_mm', "YYYYMMDDHHmm", ":product:", "mm", i)
+        UpdateDataArray('tb_profile_mm', "YYYYMMDDHHmm", ":profile:", "mm", i)
+        UpdateDataArray('tb_isp_mm', "YYYYMMDDHHmm", ":isp:", "mm", i)
+        UpdateDataArray('tb_device_mm', "YYYYMMDDHHmm", ":device:", "mm", i)
+        UpdateDataArray('tb_info_mm', "YYYYMMDDHHmm", ":info:", "mm", i)
 
     }
     for (var i = 23; i >= 0; i--) {
-        UpdateData('tb_sessions_HH', "YYYYMMDDHH", ":session:", "_sessions_HH", "HH", i)
+
+        UpdateData('tb_sessions_HH', "YYYYMMDDHH", ":session:", "HH", i)
+
+        UpdateDataArray('tb_product_HH', "YYYYMMDDHH", ":product:", "HH", i)
+        UpdateDataArray('tb_profile_HH', "YYYYMMDDHH", ":profile:", "HH", i)
+        UpdateDataArray('tb_isp_HH', "YYYYMMDDHH", ":isp:", "HH", i)
+        UpdateDataArray('tb_device_HH', "YYYYMMDDHH", ":device:", "HH", i)
+        UpdateDataArray('tb_info_HH', "YYYYMMDDHH", ":info:", "HH", i)
+
     }
     for (var i = 1; i >= 0; i--) {
 
-        UpdateData('tb_sessions_dd', "YYYYMMDD", ":session:", "_sessions_dd", "dd", i)
+        UpdateData('tb_sessions_dd', "YYYYMMDD", ":session:", "dd", i)
+
+        UpdateDataArray('tb_product_dd', "YYYYMMDD", ":product:", "dd", i)
+        UpdateDataArray('tb_profile_dd', "YYYYMMDD", ":profile:", "dd", i)
+        UpdateDataArray('tb_isp_dd', "YYYYMMDD", ":isp:", "dd", i)
+        UpdateDataArray('tb_device_dd', "YYYYMMDD", ":device:", "dd", i)
+        UpdateDataArray('tb_info_dd', "YYYYMMDD", ":info:", "dd", i)
+
     }
 
 }, 20000)
-
