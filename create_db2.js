@@ -176,7 +176,15 @@ var updateRestaurants = function (paraCollection,
 
 
     var vTimeFormatter, redisKey
-    if (paraTime === 'HH') {
+
+    if (paraTime === 'mm') {
+        vTimeFormatter = moment.utc().subtract(paraI, 'minutes').format(paraTimeFormat)
+        console.log(vTimeFormatter)
+
+        redisKey = vTimeFormatter + paraObject
+        console.log(redisKey)
+
+    } else if (paraTime === 'HH') {
         vTimeFormatter = moment.utc().subtract(paraI, 'hours').format(paraTimeFormat)
         console.log(vTimeFormatter)
 
@@ -315,7 +323,6 @@ var interValUpdate = setInterval(function () {
         UpdateData('tb_sessions_mm', "YYYYMMDDHHmm", ":session:", "_sessions_mm", "mm", i)
 
     }
-    //UpdateData('tb_sessions_5m', "YYYYMMDDHH", ":session:", "_sessions_5m", "5m")
     for (var i = 23; i >= 0; i--) {
         UpdateData('tb_sessions_HH', "YYYYMMDDHH", ":session:", "_sessions_HH", "HH", i)
     }
@@ -327,49 +334,49 @@ var interValUpdate = setInterval(function () {
 }, 20000)
 
 /*
-var interVal5m = setInterval(function () {
+ var interVal5m = setInterval(function () {
 
-    InsertData('tb_sessions_5m', "YYYYMMDDHH", ":session:", "_sessions_5m", "5m")
-    InsertData('tb_session_hdo_5m', "YYYYMMDDHH", ":session:hdo:", "_session_hdo_5m", "5m")
-    InsertData('tb_session_hdviet_5m', "YYYYMMDDHH", ":session:hdviet:", "_session_hdviet_5m", "5m")
-    InsertData('tb_session_vip_hdviet_5m', "YYYYMMDDHH", ":session:vip_hdviet:", "_session_vip_hdviet_5m", "5m")
+ InsertData('tb_sessions_5m', "YYYYMMDDHH", ":session:", "_sessions_5m", "5m")
+ InsertData('tb_session_hdo_5m', "YYYYMMDDHH", ":session:hdo:", "_session_hdo_5m", "5m")
+ InsertData('tb_session_hdviet_5m', "YYYYMMDDHH", ":session:hdviet:", "_session_hdviet_5m", "5m")
+ InsertData('tb_session_vip_hdviet_5m', "YYYYMMDDHH", ":session:vip_hdviet:", "_session_vip_hdviet_5m", "5m")
 
-    InsertDataArray('tb_product_5m', "YYYYMMDDHH", ":product:", "_product_5m", "5m")
-    InsertDataArray('tb_profile_5m', "YYYYMMDDHH", ":profile:", "_profile_5m", "5m")
-    InsertDataArray('tb_isp_5m', "YYYYMMDDHH", ":isp:", "_isp_5m", "5m")
-    InsertDataArray('tb_device_5m', "YYYYMMDDHH", ":device:", "_device_5m", "5m")
-    InsertDataArray('tb_info_5m', "YYYYMMDDHH", ":info:", "_info_5m", "5m");
+ InsertDataArray('tb_product_5m', "YYYYMMDDHH", ":product:", "_product_5m", "5m")
+ InsertDataArray('tb_profile_5m', "YYYYMMDDHH", ":profile:", "_profile_5m", "5m")
+ InsertDataArray('tb_isp_5m', "YYYYMMDDHH", ":isp:", "_isp_5m", "5m")
+ InsertDataArray('tb_device_5m', "YYYYMMDDHH", ":device:", "_device_5m", "5m")
+ InsertDataArray('tb_info_5m', "YYYYMMDDHH", ":info:", "_info_5m", "5m");
 
-}, 300000)
+ }, 300000)
 
-var interValHH = setInterval(function () {
+ var interValHH = setInterval(function () {
 
-    InsertData('tb_sessions_HH', "YYYYMMDDHH", ":session:", "_sessions_HH", "HH")
-    InsertData('tb_session_hdo_HH', "YYYYMMDDHH", ":session:hdo:", "_session_hdo_HH", "HH")
-    InsertData('tb_session_hdviet_HH', "YYYYMMDDHH", ":session:hdviet:", "_session_hdviet_HH", "HH")
-    InsertData('tb_session_vip_hdviet_HH', "YYYYMMDDHH", ":session:vip_hdviet:", "_session_vip_hdviet_HH", "HH")
+ InsertData('tb_sessions_HH', "YYYYMMDDHH", ":session:", "_sessions_HH", "HH")
+ InsertData('tb_session_hdo_HH', "YYYYMMDDHH", ":session:hdo:", "_session_hdo_HH", "HH")
+ InsertData('tb_session_hdviet_HH', "YYYYMMDDHH", ":session:hdviet:", "_session_hdviet_HH", "HH")
+ InsertData('tb_session_vip_hdviet_HH', "YYYYMMDDHH", ":session:vip_hdviet:", "_session_vip_hdviet_HH", "HH")
 
-    InsertDataArray('tb_product_HH', "YYYYMMDDHH", ":product:", "_product_HH", "HH")
-    InsertDataArray('tb_profile_HH', "YYYYMMDDHH", ":profile:", "_profile_HH", "HH")
-    InsertDataArray('tb_isp_HH', "YYYYMMDDHH", ":isp:", "_isp_HH", "HH")
-    InsertDataArray('tb_device_HH', "YYYYMMDDHH", ":device:", "_device_HH", "HH")
-    InsertDataArray('tb_info_HH', "YYYYMMDDHH", ":info:", "_info_HH", "HH");
+ InsertDataArray('tb_product_HH', "YYYYMMDDHH", ":product:", "_product_HH", "HH")
+ InsertDataArray('tb_profile_HH', "YYYYMMDDHH", ":profile:", "_profile_HH", "HH")
+ InsertDataArray('tb_isp_HH', "YYYYMMDDHH", ":isp:", "_isp_HH", "HH")
+ InsertDataArray('tb_device_HH', "YYYYMMDDHH", ":device:", "_device_HH", "HH")
+ InsertDataArray('tb_info_HH', "YYYYMMDDHH", ":info:", "_info_HH", "HH");
 
-}, 3600000)
+ }, 3600000)
 
-var interValdd = setInterval(function () {
+ var interValdd = setInterval(function () {
 
 
-    InsertData('tb_sessions_dd', "YYYYMMDD", ":session:", "_sessions_dd", "dd")
-    InsertData('tb_session_hdo_dd', "YYYYMMDD", ":session:hdo:", "_session_hdo_dd", "dd")
-    InsertData('tb_session_hdviet_dd', "YYYYMMDD", ":session:hdviet:", "_session_hdviet_dd", "dd")
-    InsertData('tb_session_vip_hdviet_dd', "YYYYMMDD", ":session:vip_hdviet:", "_session_vip_hdviet_dd", "dd")
+ InsertData('tb_sessions_dd', "YYYYMMDD", ":session:", "_sessions_dd", "dd")
+ InsertData('tb_session_hdo_dd', "YYYYMMDD", ":session:hdo:", "_session_hdo_dd", "dd")
+ InsertData('tb_session_hdviet_dd', "YYYYMMDD", ":session:hdviet:", "_session_hdviet_dd", "dd")
+ InsertData('tb_session_vip_hdviet_dd', "YYYYMMDD", ":session:vip_hdviet:", "_session_vip_hdviet_dd", "dd")
 
-    InsertDataArray('tb_product_dd', "YYYYMMDD", ":product:", "_product_dd", "dd")
-    InsertDataArray('tb_profile_dd', "YYYYMMDD", ":profile:", "_profile_dd", "dd")
-    InsertDataArray('tb_isp_dd', "YYYYMMDD", ":isp:", "_isp_dd", "dd")
-    InsertDataArray('tb_device_dd', "YYYYMMDD", ":device:", "_device_dd", "dd")
-    InsertDataArray('tb_info_dd', "YYYYMMDD", ":info:", "_info_dd", "dd");
+ InsertDataArray('tb_product_dd', "YYYYMMDD", ":product:", "_product_dd", "dd")
+ InsertDataArray('tb_profile_dd', "YYYYMMDD", ":profile:", "_profile_dd", "dd")
+ InsertDataArray('tb_isp_dd', "YYYYMMDD", ":isp:", "_isp_dd", "dd")
+ InsertDataArray('tb_device_dd', "YYYYMMDD", ":device:", "_device_dd", "dd")
+ InsertDataArray('tb_info_dd', "YYYYMMDD", ":info:", "_info_dd", "dd");
 
-}, 86400000)
-*/
+ }, 86400000)
+ */
