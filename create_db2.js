@@ -32,7 +32,7 @@ var insertDocumentSession = function (paraCollection,
         //var vMinuteFormatter = "201508110506"
         redisKey = vTimeFormatter + paraObject
     } else if (paraTime === '5m') {
-        vTimeFormatter = moment.utc().format(paraTimeFormat).toString() + (Math.floor(moment().utc().minutes() / 5) + 1).toString();
+        vTimeFormatter = moment.utc().format(paraTimeFormat).toString() + "A5" + (Math.floor(moment().utc().minutes() / 5) + 1).toString();
         console.log(vTimeFormatter)
         redisKey = vTimeFormatter + paraObject
     } else if (paraTime === 'HH') {
@@ -106,7 +106,7 @@ var insertDocumentArray = function (paraCollection,
         //var vMinuteFormatter = "201508110506"
         redisKey = vTimeFormatter + paraObject
     } else if (paraTime === '5m') {
-        vTimeFormatter = moment.utc().format(paraTimeFormat).toString() + (Math.floor(moment().utc().minutes() / 5) + 1).toString();
+        vTimeFormatter = moment.utc().format(paraTimeFormat).toString() + "A5" + (Math.floor(moment().utc().minutes() / 5) + 1).toString();
         console.log(vTimeFormatter)
         redisKey = vTimeFormatter + paraObject
     } else if (paraTime === 'HH') {
