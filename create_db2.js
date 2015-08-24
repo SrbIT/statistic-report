@@ -32,7 +32,8 @@ var insertDocumentSession = function (paraCollection,
         //var vMinuteFormatter = "201508110506"
         redisKey = vTimeFormatter + paraObject
     } else if (paraTime === '5m') {
-        vTimeFormatter = moment.utc().format(paraTimeFormat).toString() + "A5" + (Math.floor(moment().utc().minutes() / 5) + 1).toString();
+        vTimeFormatter = moment.utc().format(paraTimeFormat).toString() + "A5"
+            + (Math.floor(moment().utc().minutes() / 5) + 1).toString();
         console.log(vTimeFormatter)
         redisKey = vTimeFormatter + paraObject
     } else if (paraTime === 'HH') {
@@ -165,6 +166,80 @@ var insertDocumentArray = function (paraCollection,
 
 };
 
+var updateRestaurants = function (paraCollection,
+                                  paraTimeFormat,
+                                  paraObject,
+                                  paraSuff,
+                                  paraTime,
+                                  paraI,
+                                  db, callback) {
+
+
+    var vTimeFormatter, redisKey
+    if (paraTime === 'HH') {
+        vTimeFormatter = moment.utc().subtract(paraI, 'hours').format(paraTimeFormat)
+        console.log(vTimeFormatter)
+
+        redisKey = vTimeFormatter + paraObject
+        console.log(redisKey)
+
+    } else if (paraTime === 'dd') {
+        vTimeFormatter = moment.utc().subtract(paraI, 'days').format(paraTimeFormat)
+        console.log(vTimeFormatter)
+
+        redisKey = vTimeFormatter + paraObject
+        console.log(redisKey)
+    }
+
+    client_Redis.hlen(redisKey, function (err, reply) {
+
+        if (reply === null) {
+
+            console.log("Error: " + err)
+            console.log(01)
+
+        } else {
+            console.log(parseInt(reply))
+
+            db.collection(paraCollection).updateOne(
+                {"date_min": vTimeFormatter},
+                {
+                    $set: {"value": parseInt(reply)}
+                },
+                {upsert: true}, function (err, results) {
+                    //console.log(results);
+                    callback();
+                });
+
+        }
+
+    })
+
+};
+
+function UpdateData(paraCollection,
+                    paraTimeFormat,
+                    paraObject,
+                    paraSuff,
+                    paraTime,
+                    paraI) {
+
+    MongoClient.connect(url, function (err, db) {
+        assert.equal(null, err);
+
+        updateRestaurants(paraCollection,
+            paraTimeFormat,
+            paraObject,
+            paraSuff,
+            paraTime,
+            paraI,
+            db, function () {
+                db.close();
+            });
+    });
+
+}
+
 function ConvertData(reply) {
 
     var keys = Object.keys(reply);
@@ -196,6 +271,7 @@ function InsertData(paraCollection,
                 db.close();
             });
     })
+
 }
 
 
@@ -233,6 +309,24 @@ var interValmm = setInterval(function () {
 
 }, 60000)
 
+var interValUpdate = setInterval(function () {
+
+    for (var i = 35; i >= 5; i--) {
+        UpdateData('tb_sessions_mm', "YYYYMMDDHHmm", ":session:", "_sessions_mm", "mm", i)
+
+    }
+    //UpdateData('tb_sessions_5m', "YYYYMMDDHH", ":session:", "_sessions_5m", "5m")
+    for (var i = 23; i >= 0; i--) {
+        UpdateData('tb_sessions_HH', "YYYYMMDDHH", ":session:", "_sessions_HH", "HH", i)
+    }
+    for (var i = 1; i >= 0; i--) {
+
+        UpdateData('tb_sessions_dd', "YYYYMMDD", ":session:", "_sessions_dd", "dd", i)
+    }
+
+}, 20000)
+
+/*
 var interVal5m = setInterval(function () {
 
     InsertData('tb_sessions_5m', "YYYYMMDDHH", ":session:", "_sessions_5m", "5m")
@@ -278,4 +372,4 @@ var interValdd = setInterval(function () {
     InsertDataArray('tb_info_dd', "YYYYMMDD", ":info:", "_info_dd", "dd");
 
 }, 86400000)
-
+*/
