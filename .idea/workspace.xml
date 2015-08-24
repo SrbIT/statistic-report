@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74488fe2-106e-4a27-9220-cfaef69b9d5e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/create_db2.js" afterPath="$PROJECT_DIR$/create_db2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/update_db2.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="statistic-report.iws" />
@@ -28,11 +28,21 @@
         <entry file="file://$PROJECT_DIR$/update_db1.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="36" selection-end-column="5" />
+              <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
               <folding>
                 <element signature="n#!!block;n#UpdateData#0" expanded="false" />
                 <element signature="e#2397#2880#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="update_db2.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/update_db2.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3952514">
+              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -49,27 +59,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create_db2.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="create_db2.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/create_db2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.56703913">
-              <caret line="325" column="0" selection-start-line="325" selection-start-column="0" selection-end-line="325" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="73" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="382" selection-end-column="0" />
               <folding>
                 <element signature="e#0#81#0" expanded="false" />
                 <element signature="e#334#355#0" expanded="false" />
-                <element signature="e#763#2878#0" expanded="false" />
                 <element signature="e#827#1013#0" expanded="false" />
                 <element signature="e#1042#1284#0" expanded="false" />
                 <element signature="e#1313#1449#0" expanded="false" />
                 <element signature="e#1478#1593#0" expanded="false" />
                 <element signature="e#1622#1737#0" expanded="false" />
                 <element signature="e#1743#1858#0" expanded="false" />
-                <element signature="e#1942#2874#0" expanded="false" />
                 <element signature="e#1973#2422#0" expanded="false" />
                 <element signature="e#2097#2233#0" expanded="false" />
                 <element signature="e#2258#2409#0" expanded="false" />
-                <element signature="e#2428#2835#0" expanded="false" />
-                <element signature="e#2483#2635#0" expanded="false" />
                 <element signature="e#2660#2822#0" expanded="false" />
                 <element signature="e#3175#5369#0" expanded="false" />
                 <element signature="e#3240#3426#0" expanded="false" />
@@ -86,14 +92,8 @@
                 <element signature="e#4930#5358#0" expanded="false" />
                 <element signature="e#5028#5167#0" expanded="false" />
                 <element signature="e#5192#5345#0" expanded="false" />
-                <element signature="e#5999#6207#0" expanded="false" />
-                <element signature="e#6906#7001#0" expanded="false" />
-                <element signature="e#7491#7534#0" expanded="false" />
                 <element signature="n#!!block;n#ConvertData#0" expanded="false" />
                 <element signature="e#7676#7791#0" expanded="false" />
-                <element signature="n#!!block;n#InsertData#0" expanded="false" />
-                <element signature="e#8027#8283#0" expanded="false" />
-                <element signature="e#8232#8275#0" expanded="false" />
                 <element signature="n#!!block;n#InsertDataArray#0" expanded="false" />
                 <element signature="e#8530#8784#0" expanded="false" />
                 <element signature="e#8733#8776#0" expanded="false" />
@@ -107,8 +107,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.525">
-              <caret line="47" column="6" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
+            <state vertical-scroll-proportion="-29.45">
+              <caret line="53" column="33" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
               <folding>
                 <element signature="e#5298#6462#0" expanded="false" />
                 <element signature="e#6726#6884#0" expanded="false" />
@@ -155,6 +155,7 @@
         <option value="$PROJECT_DIR$/update_db1.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/create_db2.js" />
+        <option value="$PROJECT_DIR$/update_db2.js" />
       </list>
     </option>
   </component>
@@ -356,7 +357,7 @@
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20137931" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20042872" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290461" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -371,7 +372,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24727075" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3772776" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2079314" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -392,16 +393,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/read_db1.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -890,28 +881,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.525">
-          <caret line="47" column="6" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
-          <folding>
-            <element signature="e#5298#6462#0" expanded="false" />
-            <element signature="e#6726#6884#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/update_db1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="36" selection-end-column="5" />
-          <folding>
-            <element signature="n#!!block;n#UpdateData#0" expanded="false" />
-            <element signature="e#2397#2880#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/read_db2.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -922,26 +891,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-29.45">
+          <caret line="53" column="33" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
+          <folding>
+            <element signature="e#5298#6462#0" expanded="false" />
+            <element signature="e#6726#6884#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/update_db1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+          <folding>
+            <element signature="n#!!block;n#UpdateData#0" expanded="false" />
+            <element signature="e#2397#2880#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/create_db2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56703913">
-          <caret line="325" column="0" selection-start-line="325" selection-start-column="0" selection-end-line="325" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="73" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="382" selection-end-column="0" />
           <folding>
             <element signature="e#0#81#0" expanded="false" />
             <element signature="e#334#355#0" expanded="false" />
-            <element signature="e#763#2878#0" expanded="false" />
             <element signature="e#827#1013#0" expanded="false" />
             <element signature="e#1042#1284#0" expanded="false" />
             <element signature="e#1313#1449#0" expanded="false" />
             <element signature="e#1478#1593#0" expanded="false" />
             <element signature="e#1622#1737#0" expanded="false" />
             <element signature="e#1743#1858#0" expanded="false" />
-            <element signature="e#1942#2874#0" expanded="false" />
             <element signature="e#1973#2422#0" expanded="false" />
             <element signature="e#2097#2233#0" expanded="false" />
             <element signature="e#2258#2409#0" expanded="false" />
-            <element signature="e#2428#2835#0" expanded="false" />
-            <element signature="e#2483#2635#0" expanded="false" />
             <element signature="e#2660#2822#0" expanded="false" />
             <element signature="e#3175#5369#0" expanded="false" />
             <element signature="e#3240#3426#0" expanded="false" />
@@ -958,20 +945,22 @@
             <element signature="e#4930#5358#0" expanded="false" />
             <element signature="e#5028#5167#0" expanded="false" />
             <element signature="e#5192#5345#0" expanded="false" />
-            <element signature="e#5999#6207#0" expanded="false" />
-            <element signature="e#6906#7001#0" expanded="false" />
-            <element signature="e#7491#7534#0" expanded="false" />
             <element signature="n#!!block;n#ConvertData#0" expanded="false" />
             <element signature="e#7676#7791#0" expanded="false" />
-            <element signature="n#!!block;n#InsertData#0" expanded="false" />
-            <element signature="e#8027#8283#0" expanded="false" />
-            <element signature="e#8232#8275#0" expanded="false" />
             <element signature="n#!!block;n#InsertDataArray#0" expanded="false" />
             <element signature="e#8530#8784#0" expanded="false" />
             <element signature="e#8733#8776#0" expanded="false" />
             <element signature="e#9999#10094#0" expanded="false" />
             <element signature="e#10107#12567#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/update_db2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3952514">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
