@@ -98,11 +98,12 @@ var updateRestaurantsArray = function (paraCollection,
         redisKey = vTimeFormatter + paraObject
     }
 
+    console.log(redisKey)
     client_Redis.hgetall(redisKey, function (err, reply) {
 
         if (reply === null) {
 
-            console.log("Error: " + err)
+            console.log("Error: " + redisKey + err)
             console.log("01")
 
         } else {
@@ -170,38 +171,38 @@ function UpdateDataArray(paraCollection,
 
 var interValmm = setInterval(function () {
 
-    for (var i = 10; i >= 5; i--) {
+    for (var i = 25; i >= 5; i--) {
 
         UpdateData('tb_sessions_mm', "YYYYMMDDHHmm", ":session:", "mm", i)
 
-        //UpdateDataArray('tb_product_mm', "YYYYMMDDHHmm", ":product:", "mm", i)
-        //UpdateDataArray('tb_profile_mm', "YYYYMMDDHHmm", ":profile:", "mm", i)
-        //UpdateDataArray('tb_isp_mm', "YYYYMMDDHHmm", ":isp:", "mm", i)
-        //UpdateDataArray('tb_device_mm', "YYYYMMDDHHmm", ":device:", "mm", i)
-        //UpdateDataArray('tb_info_mm', "YYYYMMDDHHmm", ":info:", "mm", i)
+        UpdateDataArray('tb_product_mm', "YYYYMMDDHHmm", ":product:", "mm", i)
+        UpdateDataArray('tb_profile_mm', "YYYYMMDDHHmm", ":profile:", "mm", i)
+        UpdateDataArray('tb_isp_mm', "YYYYMMDDHHmm", ":isp:", "mm", i)
+        UpdateDataArray('tb_device_mm', "YYYYMMDDHHmm", ":device:", "mm", i)
+        UpdateDataArray('tb_info_mm', "YYYYMMDDHHmm", ":info:", "mm", i)
 
     }
-    for (var i = 23; i >= 0; i--) {
+    for (var i = 1; i >= 0; i--) {
 
         UpdateData('tb_sessions_HH', "YYYYMMDDHH", ":session:", "HH", i)
 
-        //UpdateDataArray('tb_product_HH', "YYYYMMDDHH", ":product:", "HH", i)
-        //UpdateDataArray('tb_profile_HH', "YYYYMMDDHH", ":profile:", "HH", i)
-        //UpdateDataArray('tb_isp_HH', "YYYYMMDDHH", ":isp:", "HH", i)
-        //UpdateDataArray('tb_device_HH', "YYYYMMDDHH", ":device:", "HH", i)
-        //UpdateDataArray('tb_info_HH', "YYYYMMDDHH", ":info:", "HH", i)
+        UpdateDataArray('tb_product_HH', "YYYYMMDDHH", ":product:", "HH", i)
+        UpdateDataArray('tb_profile_HH', "YYYYMMDDHH", ":profile:", "HH", i)
+        UpdateDataArray('tb_isp_HH', "YYYYMMDDHH", ":isp:", "HH", i)
+        UpdateDataArray('tb_device_HH', "YYYYMMDDHH", ":device:", "HH", i)
+        UpdateDataArray('tb_info_HH', "YYYYMMDDHH", ":info:", "HH", i)
 
     }
     for (var i = 1; i >= 0; i--) {
 
         UpdateData('tb_sessions_dd', "YYYYMMDD", ":session:", "dd", i)
 
-        //UpdateDataArray('tb_product_dd', "YYYYMMDD", ":product:", "dd", i)
-        //UpdateDataArray('tb_profile_dd', "YYYYMMDD", ":profile:", "dd", i)
-        //UpdateDataArray('tb_isp_dd', "YYYYMMDD", ":isp:", "dd", i)
-        //UpdateDataArray('tb_device_dd', "YYYYMMDD", ":device:", "dd", i)
-        //UpdateDataArray('tb_info_dd', "YYYYMMDD", ":info:", "dd", i)
+        UpdateDataArray('tb_product_dd', "YYYYMMDD", ":product:", "dd", i)
+        UpdateDataArray('tb_profile_dd', "YYYYMMDD", ":profile:", "dd", i)
+        UpdateDataArray('tb_isp_dd', "YYYYMMDD", ":isp:", "dd", i)
+        UpdateDataArray('tb_device_dd', "YYYYMMDD", ":device:", "dd", i)
+        UpdateDataArray('tb_info_dd', "YYYYMMDD", ":info:", "dd", i)
 
     }
 
-}, 20000)
+}, 60000)
