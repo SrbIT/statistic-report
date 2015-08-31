@@ -97,7 +97,6 @@ io.on("connection", function (socket) {
         });
     }
 
-
     function getDataArray(paraCollection,
                           paraChannel,
                           data) {
@@ -166,6 +165,67 @@ io.on("connection", function (socket) {
 
     }
 
+    function getArrayTime(paraI) {
+        var arr = []
+        for (var i = 0; i < paraI; i++) {
+            var vMinuteFormatter = moment.utc().subtract(i, 'days').format("YYYYMMDD")
+            arr.push(new RegExp(vMinuteFormatter))
+        }
+        return arr;
+    }
+
+    function getDataAggregate(paraCollection,
+                              paraChannelS,
+                              paraI) {
+
+        var aggregateRestaurants = function (db, callback) {
+            db.collection(paraCollection).aggregate(
+                [
+                    {$unwind: "$value"},
+                    {$match: {"date_min": {$in: getArrayTime(paraI)}}},
+                    {
+                        $group: {
+                            _id: "$value.name",
+                            "y": {$sum: "$value.y"}
+                        }
+                    },
+                    {
+                        $project: {
+                            'name': "$_id",
+                            'y': "$y",
+                            _id: 0
+                        }
+                    }
+
+                ]).
+                toArray(function (err, result) {
+                    assert.equal(err, null);
+                    console.log(result);
+                    socket.emit(paraChannelS, result)
+                    callback(result);
+                }
+            );
+        };
+
+        MongoClient.connect(url, function (err, db) {
+            assert.equal(null, err);
+            aggregateRestaurants(db, function () {
+                db.close();
+            });
+        });
+    }
+
+    function socketDataAggregate(paraCollection,
+                                 paraChannelR,
+                                 paraChannelS, paraI) {
+
+        socket.on(paraChannelR, function (data) {
+
+            getDataAggregate(paraCollection, paraChannelS, paraI, data)
+
+        });
+    }
+
     socketData('tb_sessions_mm', "messagemm", "sessions_time", 30)//minutes
     //socketData('tb_sessions_5m', "message5m", "sessions_time")//5 minutes
     socketData('tb_sessions_HH', "messageHH", "sessions_time", 24)// hour for 24 h
@@ -179,31 +239,37 @@ io.on("connection", function (socket) {
     socketDataArray('tb_product_5m', "product5m", "product_time")
     socketDataArray('tb_product_HH', "productHH", "product_time")
     socketDataArray('tb_product_dd', "productdd", "product_time")
-    socketDataArray('tb_product_MM', "productMM", "product_time")
+    socketDataAggregate('tb_product_dd', "productd7", "product_time7", 7)
+    socketDataAggregate('tb_product_dd', "productd30", "product_time7", 30)
 
     socketDataArray('tb_profile_mm', "profilemm", "profile_time")
     socketDataArray('tb_profile_5m', "profile5m", "profile_time")
     socketDataArray('tb_profile_HH', "profileHH", "profile_time")
     socketDataArray('tb_profile_dd', "profiledd", "profile_time")
-    socketDataArray('tb_profile_MM', "profileMM", "profile_time")
+    socketDataAggregate('tb_profile_dd', "profiled7", "profile_time7", 7)
+    socketDataAggregate('tb_profile_dd', "profiled30", "profile_time7", 30)
+
 
     socketDataArray('tb_isp_mm', "ispmm", "isp_time")
     socketDataArray('tb_isp_5m', "isp5m", "isp_time")
     socketDataArray('tb_isp_HH', "ispHH", "isp_time")
     socketDataArray('tb_isp_dd', "ispdd", "isp_time")
-    socketDataArray('tb_isp_MM', "ispMM", "isp_time")
+    socketDataAggregate('tb_isp_dd', "profiled7", "profile_time7", 7)
+    socketDataAggregate('tb_isp_dd', "profiled30", "profile_time7", 30)
 
     socketDataArray('tb_device_mm', "devicemm", "device_time")
     socketDataArray('tb_device_5m', "device5m", "device_time")
     socketDataArray('tb_device_HH', "deviceHH", "device_time")
     socketDataArray('tb_device_dd', "devicedd", "device_time")
-    socketDataArray('tb_device_MM', "deviceMM", "device_time")
+    socketDataAggregate('tb_device_dd', "deviced7", "device_time7", 7)
+    socketDataAggregate('tb_device_dd', "deviced30", "device_time7", 30)
 
     socketDataArray('tb_info_mm', "infomm", "info_time")
     socketDataArray('tb_info_5m', "info5m", "info_time")
     socketDataArray('tb_info_HH', "infoHH", "info_time")
     socketDataArray('tb_info_dd', "infodd", "info_time")
-    socketDataArray('tb_info_MM', "infoMM", "info_time")
+    socketDataAggregate('tb_info_dd', "infod7", "info_time7", 7)
+    socketDataAggregate('tb_info_dd', "infod30", "info_time7", 30)
 
 });
 

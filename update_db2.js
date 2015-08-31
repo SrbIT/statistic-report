@@ -126,7 +126,6 @@ var updateRestaurantsArray = function (paraCollection,
 
 };
 
-
 function UpdateData(paraCollection,
                     paraTimeFormat,
                     paraObject,

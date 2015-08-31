@@ -18,20 +18,25 @@ var moment = require('moment');
 //console.log(vMinuteFormatter)
 
 var aggregateRestaurants = function (db, callback) {
-    db.collection('table_sessions').aggregate(
-        [
-            //{$match: {"date_min": "201508100926"}},
-            {$match: {"date_min": {$in: [/20150810092\*/]}}},
-            //{ $group: { "_id": "$date_min" , "count": { $sum: 1 } } }
-            //{$group: {"_id": "$date_min", "total": {$sum: "$value"}}}
-            {$group: {"_id": "20150810092", "total": {$sum: "$value"}}}
-        ]).toArray(function (err, result) {
-            assert.equal(err, null);
-            console.log(result);
-            callback(result);
-        }
-    );
-};
+        db.collection('tb_sessions_dd').aggregate(
+            [
+                //{$match: {"date_min": "201508"}},
+                {$match: {"date_min": {$in: [/2015083/]}}},
+                //{ $group: { "_id": "$date_min" , "count": { $sum: 1 } } }
+                //{$group: {_id: "$_id", "total": {$sum: "$value"}}}
+                {$group: {_id: "null", "total": {$sum: "$value"}}}
+                //{
+                //    $group: {"total": {"_id": "$_id", $sum: "$value"}}
+                //}
+            ]).
+            toArray(function (err, result) {
+                assert.equal(err, null);
+                console.log(result);
+                callback(result);
+            }
+        );
+    }
+    ;
 
 MongoClient.connect(url, function (err, db) {
     assert.equal(null, err);
