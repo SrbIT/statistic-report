@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74488fe2-106e-4a27-9220-cfaef69b9d5e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aggregate_db.js" afterPath="$PROJECT_DIR$/aggregate_db.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/update_db2.js" afterPath="$PROJECT_DIR$/update_db2.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/read_db2.js" afterPath="$PROJECT_DIR$/read_db2.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="statistic-report.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,12 +30,40 @@
         <entry file="file://$PROJECT_DIR$/update_db2.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="207" column="4" selection-start-line="207" selection-start-column="4" selection-end-line="207" selection-end-column="4" />
+              <caret line="170" column="0" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
               <folding>
                 <element signature="e#0#42#0" expanded="false" />
                 <element signature="e#295#316#0" expanded="false" />
                 <element signature="n#!!block;n#ConvertData#0" expanded="false" />
                 <element signature="e#546#661#0" expanded="false" />
+                <element signature="e#961#2087#0" expanded="false" />
+                <element signature="e#1025#1167#0" expanded="false" />
+                <element signature="e#1196#1336#0" expanded="false" />
+                <element signature="e#1365#1504#0" expanded="false" />
+                <element signature="e#1560#2083#0" expanded="false" />
+                <element signature="e#1591#1673#0" expanded="false" />
+                <element signature="e#1679#2076#0" expanded="false" />
+                <element signature="e#1838#1910#0" expanded="false" />
+                <element signature="e#1968#2063#0" expanded="false" />
+                <element signature="e#2399#3558#0" expanded="false" />
+                <element signature="e#2463#2605#0" expanded="false" />
+                <element signature="e#2634#2774#0" expanded="false" />
+                <element signature="e#2803#2942#0" expanded="false" />
+                <element signature="e#3027#3554#0" expanded="false" />
+                <element signature="e#3058#3153#0" expanded="false" />
+                <element signature="e#3159#3547#0" expanded="false" />
+                <element signature="e#3320#3381#0" expanded="false" />
+                <element signature="e#3439#3534#0" expanded="false" />
+                <element signature="n#!!block;n#UpdateData#0" expanded="false" />
+                <element signature="e#3774#4024#0" expanded="false" />
+                <element signature="e#3973#4016#0" expanded="false" />
+                <element signature="n#!!block;n#UpdateDataArray#0" expanded="false" />
+                <element signature="e#4268#4523#0" expanded="false" />
+                <element signature="e#4472#4515#0" expanded="false" />
+                <element signature="e#4571#6035#0" expanded="false" />
+                <element signature="e#4608#5072#0" expanded="false" />
+                <element signature="e#5106#5558#0" expanded="false" />
+                <element signature="e#5592#6032#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -43,9 +73,19 @@
         <entry file="file://$PROJECT_DIR$/read_db2.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+              <caret line="66" column="32" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
               <folding>
-                <element signature="e#2981#3115#0" expanded="false" />
+                <element signature="e#0#91#0" expanded="false" />
+                <element signature="e#577#638#0" expanded="false" />
+                <element signature="e#2850#3622#0" expanded="false" />
+                <element signature="e#2927#3423#0" expanded="false" />
+                <element signature="e#3077#3410#0" expanded="false" />
+                <element signature="e#3153#3248#0" expanded="false" />
+                <element signature="e#3254#3396#0" expanded="false" />
+                <element signature="e#3478#3614#0" expanded="false" />
+                <element signature="e#3559#3602#0" expanded="false" />
+                <element signature="e#3775#3915#0" expanded="false" />
+                <element signature="e#3826#3906#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -54,14 +94,17 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3875">
-              <caret line="53" column="45" selection-start-line="53" selection-start-column="45" selection-end-line="53" selection-end-column="45" />
+            <state vertical-scroll-proportion="-2.2240117">
+              <caret line="53" column="54" selection-start-line="53" selection-start-column="54" selection-end-line="53" selection-end-column="54" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#6795#6953#0" expanded="false" />
+                <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#4349#6177#0" expanded="false" />
+                <element signature="e#6237#7401#0" expanded="false" />
+                <element signature="e#7665#7823#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -88,7 +131,6 @@
         <option value="$PROJECT_DIR$/findata.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/connect_redis_mogodb.js" />
-        <option value="$PROJECT_DIR$/aggregate_db.js" />
         <option value="$PROJECT_DIR$/update_data.js" />
         <option value="$PROJECT_DIR$/statistic.js" />
         <option value="$PROJECT_DIR$/create_db.js" />
@@ -98,13 +140,14 @@
         <option value="$PROJECT_DIR$/create_db1.js" />
         <option value="$PROJECT_DIR$/read_db1.js" />
         <option value="$PROJECT_DIR$/bar.css" />
-        <option value="$PROJECT_DIR$/read_db2.js" />
         <option value="$PROJECT_DIR$/index2.html" />
         <option value="$PROJECT_DIR$/update_db.js" />
         <option value="$PROJECT_DIR$/checkKeyMongoDB.js" />
         <option value="$PROJECT_DIR$/update_db1.js" />
         <option value="$PROJECT_DIR$/create_db2.js" />
         <option value="$PROJECT_DIR$/update_db2.js" />
+        <option value="$PROJECT_DIR$/aggregate_db.js" />
+        <option value="$PROJECT_DIR$/read_db2.js" />
         <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
@@ -117,10 +160,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1665" />
-    <option name="y" value="24" />
-    <option name="width" value="1855" />
-    <option name="height" value="1056" />
+    <option name="x" value="65" />
+    <option name="y" value="-4" />
+    <option name="width" value="1535" />
+    <option name="height" value="904" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -145,6 +188,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -166,7 +210,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -186,7 +229,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.update_db2.js">
+  <component name="RunManager" selected="Node.js.read_db2.js">
     <configuration default="false" name="create_db1.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="/usr/sbin/node" path-to-js-file="create_db1.js" working-dir="$PROJECT_DIR$">
       <method />
     </configuration>
@@ -253,8 +296,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Node.js.update_db2.js" />
-        <item index="1" class="java.lang.String" itemvalue="Node.js.read_db2.js" />
+        <item index="0" class="java.lang.String" itemvalue="Node.js.read_db2.js" />
+        <item index="1" class="java.lang.String" itemvalue="Node.js.update_db2.js" />
         <item index="2" class="java.lang.String" itemvalue="Node.js.update_db1.js" />
         <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
         <item index="4" class="java.lang.String" itemvalue="Node.js.create_db1.js" />
@@ -284,16 +327,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1665" y="24" width="1855" height="1056" extended-state="6" />
+    <frame x="65" y="-4" width="1535" height="904" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.49624866" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290461" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49535194" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32802126" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2985808" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29828042" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21007502" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2808146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6108898" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -307,7 +350,7 @@
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49667996" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49535194" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290461" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -315,14 +358,14 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290461" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32802126" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2985808" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29828042" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2808146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.6108898" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -343,18 +386,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/read_db.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/aggregate_db.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -433,7 +468,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -628,7 +662,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -686,14 +719,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/aggregate_db.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -876,19 +901,60 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3325893">
           <caret line="391" column="0" selection-start-line="391" selection-start-column="0" selection-end-line="391" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongodb/node_modules/mongodb-core/lib/connection/connection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3322933">
+          <caret line="261" column="21" selection-start-line="261" selection-start-column="21" selection-end-line="261" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aggregate_db.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6131045">
+          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/update_db2.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="207" column="4" selection-start-line="207" selection-start-column="4" selection-end-line="207" selection-end-column="4" />
+          <caret line="170" column="0" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
             <element signature="e#295#316#0" expanded="false" />
             <element signature="n#!!block;n#ConvertData#0" expanded="false" />
             <element signature="e#546#661#0" expanded="false" />
+            <element signature="e#961#2087#0" expanded="false" />
+            <element signature="e#1025#1167#0" expanded="false" />
+            <element signature="e#1196#1336#0" expanded="false" />
+            <element signature="e#1365#1504#0" expanded="false" />
+            <element signature="e#1560#2083#0" expanded="false" />
+            <element signature="e#1591#1673#0" expanded="false" />
+            <element signature="e#1679#2076#0" expanded="false" />
+            <element signature="e#1838#1910#0" expanded="false" />
+            <element signature="e#1968#2063#0" expanded="false" />
+            <element signature="e#2399#3558#0" expanded="false" />
+            <element signature="e#2463#2605#0" expanded="false" />
+            <element signature="e#2634#2774#0" expanded="false" />
+            <element signature="e#2803#2942#0" expanded="false" />
+            <element signature="e#3027#3554#0" expanded="false" />
+            <element signature="e#3058#3153#0" expanded="false" />
+            <element signature="e#3159#3547#0" expanded="false" />
+            <element signature="e#3320#3381#0" expanded="false" />
+            <element signature="e#3439#3534#0" expanded="false" />
+            <element signature="n#!!block;n#UpdateData#0" expanded="false" />
+            <element signature="e#3774#4024#0" expanded="false" />
+            <element signature="e#3973#4016#0" expanded="false" />
+            <element signature="n#!!block;n#UpdateDataArray#0" expanded="false" />
+            <element signature="e#4268#4523#0" expanded="false" />
+            <element signature="e#4472#4515#0" expanded="false" />
+            <element signature="e#4571#6035#0" expanded="false" />
+            <element signature="e#4608#5072#0" expanded="false" />
+            <element signature="e#5106#5558#0" expanded="false" />
+            <element signature="e#5592#6032#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -896,23 +962,36 @@
     <entry file="file://$PROJECT_DIR$/read_db2.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <caret line="66" column="32" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
           <folding>
-            <element signature="e#2981#3115#0" expanded="false" />
+            <element signature="e#0#91#0" expanded="false" />
+            <element signature="e#577#638#0" expanded="false" />
+            <element signature="e#2850#3622#0" expanded="false" />
+            <element signature="e#2927#3423#0" expanded="false" />
+            <element signature="e#3077#3410#0" expanded="false" />
+            <element signature="e#3153#3248#0" expanded="false" />
+            <element signature="e#3254#3396#0" expanded="false" />
+            <element signature="e#3478#3614#0" expanded="false" />
+            <element signature="e#3559#3602#0" expanded="false" />
+            <element signature="e#3775#3915#0" expanded="false" />
+            <element signature="e#3826#3906#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3875">
-          <caret line="53" column="45" selection-start-line="53" selection-start-column="45" selection-end-line="53" selection-end-column="45" />
+        <state vertical-scroll-proportion="-2.2240117">
+          <caret line="53" column="54" selection-start-line="53" selection-start-column="54" selection-end-line="53" selection-end-column="54" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#6795#6953#0" expanded="false" />
+            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#4349#6177#0" expanded="false" />
+            <element signature="e#6237#7401#0" expanded="false" />
+            <element signature="e#7665#7823#0" expanded="false" />
           </folding>
         </state>
       </provider>

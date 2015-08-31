@@ -21,7 +21,7 @@ var aggregateRestaurants = function (db, callback) {
     db.collection('table_sessions').aggregate(
         [
             //{$match: {"date_min": "201508100926"}},
-            {$match: {"date_min": {$in: [/20150810092*/]}}},
+            {$match: {"date_min": {$in: [/20150810092\*/]}}},
             //{ $group: { "_id": "$date_min" , "count": { $sum: 1 } } }
             //{$group: {"_id": "$date_min", "total": {$sum: "$value"}}}
             {$group: {"_id": "20150810092", "total": {$sum: "$value"}}}

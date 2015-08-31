@@ -13,13 +13,13 @@
 <body>
 
 <select id="timeIntervall" style="width: 100px">
-    <option value="1">1 minute</option>
-    <option value="2">5 minutes</option>
-    <option value="3">1 hour</option>
-    <option value="4">day</option>
-    <option value="6">week</option>
-    <option value="7">day</option>
-    <option value="8">month</option>
+    <!--<option value="1">Minute</option>-->
+    <!--<option value="2">5 minutes</option>-->
+    <option value="3">Hour</option>
+    <option value="4">Today</option>
+    <option value="5">Yesterday</option>
+    <option value="6">Week</option>
+    <option value="7">Month</option>
 </select>
 
 <div id="containerSession" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
@@ -51,54 +51,68 @@
 
 <script>
     var socket = io.connect("http://23.99.96.65:8082")
-    //    var socket = io.connect("http://localhost:3000");
+//        var socket = io.connect("http://localhost:3000");
 
-    socket.emit("messagemm", "mm");
-    socket.emit("productmm", "mm");
-    socket.emit("profilemm", "mm");
-    socket.emit("ispmm", "mm");
-    socket.emit("devicemm", "mm");
-    socket.emit("infomm", "mm");
+    socket.emit("messageHH", "HH");
+    socket.emit("productHH", "HH");
+    socket.emit("profileHH", "HH");
+    socket.emit("ispHH", "HH");
+    socket.emit("deviceHH", "HH");
+    socket.emit("infoHH", "HH");
 
     $(function () {
         $('#timeIntervall').change(function (event) {
             console.log($(this).val());
 
-            if ($(this).val() == 1) {
+            if ($(this).val() == 1) {//minutes
                 socket.emit("messagemm", "mm");
                 socket.emit("productmm", "mm");
                 socket.emit("profilemm", "mm");
                 socket.emit("ispmm", "mm");
                 socket.emit("devicemm", "mm");
                 socket.emit("infomm", "mm");
-            } else if ($(this).val() == 2) {
+            } else if ($(this).val() == 2) {//5 minutes
                 socket.emit("message5m", "mm");
                 socket.emit("product5m", "mm");
                 socket.emit("profile5m", "mm");
                 socket.emit("isp5m", "mm");
                 socket.emit("device5m", "mm");
                 socket.emit("info5m", "mm");
-            } else if ($(this).val() == 3) {
+            } else if ($(this).val() == 3) {//hours
                 socket.emit("messageHH", "HH");
-                socket.emit("productHH", "HH");
-                socket.emit("profileHH", "HH");
-                socket.emit("ispHH", "HH");
-                socket.emit("deviceHH", "HH");
-                socket.emit("infoHH", "HH");
-            } else if ($(this).val() == 4) {
-                socket.emit("messagedd", "dd");
-                socket.emit("productdd", "dd");
-                socket.emit("profiledd", "dd");
-                socket.emit("ispdd", "dd");
-                socket.emit("devicedd", "dd");
-                socket.emit("infodd", "dd");
-            } else if ($(this).val() == 5) {
-                socket.emit("messageMM", "MM");
-                socket.emit("productMM", "MM");
-                socket.emit("profileMM", "MM");
-                socket.emit("ispMM", "MM");
-                socket.emit("deviceMM", "MM");
-                socket.emit("infoMM", "MM");
+//                socket.emit("productHH", "HH");
+//                socket.emit("profileHH", "HH");
+//                socket.emit("ispHH", "HH");
+//                socket.emit("deviceHH", "HH");
+//                socket.emit("infoHH", "HH");
+            } else if ($(this).val() == 4) {//today
+                socket.emit("messageHToday", "HH");
+//                socket.emit("productHH", "HH");
+//                socket.emit("profileHH", "HH");
+//                socket.emit("ispHH", "HH");
+//                socket.emit("deviceHH", "HH");
+//                socket.emit("infoHH", "HH");
+            } else if ($(this).val() == 5) {//yesterday
+                socket.emit("messageHYesterday", "HH");
+//                socket.emit("productHH", "HH");
+//                socket.emit("profileHH", "HH");
+//                socket.emit("ispHH", "HH");
+//                socket.emit("deviceHH", "HH");
+//                socket.emit("infoHH", "HH");
+            } else if ($(this).val() == 6) {//week
+                socket.emit("messaged7", "d7");
+                socket.emit("productd7", "d7");
+                socket.emit("profiled7", "d7");
+                socket.emit("ispd7", "d7");
+                socket.emit("deviced7", "d7");
+                socket.emit("infod7", "d7");
+            } else if ($(this).val() == 7) {//month
+                socket.emit("messaged30", "d30");
+                socket.emit("productd30", "d30");
+                socket.emit("profiled30", "d30");
+                socket.emit("ispd30", "d30");
+                socket.emit("deviced30", "d30");
+                socket.emit("infod30", "d30");
             }
 
         });
@@ -115,10 +129,10 @@
             var day = dateString.substring(6, 8);
             var hour = dateString.substring(8, 10);
             var minute = dateString.substring(10, 12);
-            var date = new Date(year, month, day, hour, minute)
+            var date = new Date(year, month - 1, day, hour, minute)
             date.setHours(date.getHours() + 7)
-            dataX.push(date.getHours() + ":" + date.getMinutes())
-            console.log("aaaaa" + date.getDay())
+            dataX.push(date.toLocaleDateString() + " " + date.getHours() + ":" + date.getMinutes())
+            console.log(date.toLocaleDateString() + " " + date.getHours() + ":" + date.getMinutes())
             dataSubY.push(data[keys[i]].value);
 
         }

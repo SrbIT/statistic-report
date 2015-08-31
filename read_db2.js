@@ -25,23 +25,18 @@ app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 
 });
-app.get('/sta', function (req, res) {
-    console.log("STA")
-
-    res.sendFile(path.join(__dirname + '/index9.html'));
-
-});
 
 var url = 'mongodb://localhost:27017/db_la';
 
 io.on("connection", function (socket) {
 
     function getData(paraCollection,
-                     paraChannel,
+                     paraChannelS,
+                     paraLimit,
                      data) {
         var dataA = []
         var findData = function (db, callback) {
-            var cursor = db.collection(paraCollection).find({}, {_id: 0}).sort({$natural: -1}).limit(30)
+            var cursor = db.collection(paraCollection).find({}, {_id: 0}).sort({$natural: -1}).limit(paraLimit)
             cursor.each(function (err, doc) {
                 assert.equal(err, null);
                 if (doc != null) {
@@ -49,7 +44,7 @@ io.on("connection", function (socket) {
                     dataA.push(doc);
 
                 } else {
-                    socket.emit(paraChannel, dataA)
+                    socket.emit(paraChannelS, dataA)
                     console.log(dataA)
                     callback();
                 }
@@ -64,6 +59,44 @@ io.on("connection", function (socket) {
             });
         });
     }
+
+    function getDataMatch(paraCollection,
+                          paraChannelS,
+                          paraI,
+                          paraLimit,
+                          data) {
+
+
+        var dataA = []
+
+        var findData = function (db, callback) {
+            var vTimeFormatter = moment.utc().subtract(paraI, 'days').format("YYYYMMDD")
+
+            var cursor = db.collection(paraCollection).find({"date_min": new RegExp(vTimeFormatter)},
+                {_id: 0}).sort({$natural: -1}).limit(paraLimit)
+            cursor.each(function (err, doc) {
+                assert.equal(err, null);
+                if (doc != null) {
+                    console.dir(doc);
+                    dataA.push(doc);
+
+                } else {
+                    socket.emit(paraChannelS, dataA)
+                    console.log(dataA)
+                    callback();
+                }
+            })
+
+        };
+
+        MongoClient.connect(url, function (err, db) {
+            assert.equal(null, err);
+            findData(db, function () {
+                db.close();
+            });
+        });
+    }
+
 
     function getDataArray(paraCollection,
                           paraChannel,
@@ -96,11 +129,26 @@ io.on("connection", function (socket) {
 
     function socketData(paraCollection,
                         paraChannelR,
-                        paraChannelS) {
+                        paraChannelS,
+                        paraLimit) {
 
         socket.on(paraChannelR, function (data) {
 
-            getData(paraCollection, paraChannelS, data)
+            getData(paraCollection, paraChannelS, paraLimit, data)
+
+        });
+
+    }
+
+    function socketDataMatch(paraCollection,
+                             paraChannelR,
+                             paraChannelS,
+                             paraI,
+                             paraLimit) {
+
+        socket.on(paraChannelR, function (data) {
+
+            getDataMatch(paraCollection, paraChannelS, paraI, paraLimit, data)
 
         });
 
@@ -118,11 +166,14 @@ io.on("connection", function (socket) {
 
     }
 
-    socketData('tb_sessions_mm', "messagemm", "sessions_time")
-    socketData('tb_sessions_5m', "message5m", "sessions_time")
-    socketData('tb_sessions_HH', "messageHH", "sessions_time")
-    socketData('tb_sessions_dd', "messagedd", "sessions_time")
-    socketData('tb_sessions_MM', "messageMM", "sessions_time")
+    socketData('tb_sessions_mm', "messagemm", "sessions_time", 30)//minutes
+    //socketData('tb_sessions_5m', "message5m", "sessions_time")//5 minutes
+    socketData('tb_sessions_HH', "messageHH", "sessions_time", 24)// hour for 24 h
+    socketDataMatch('tb_sessions_HH', "messageHToday", "sessions_time", 0, 24)// today
+    socketDataMatch('tb_sessions_HH', "messageHYesterday", "sessions_time", 1, 24)// yesterday
+    socketData('tb_sessions_dd', "messaged7", "sessions_time", 7)//week
+    socketData('tb_sessions_dd', "messaged30", "sessions_time", 30)//month
+    //socketData('tb_sessions_MM', "messageMM", "sessions_time")
 
     socketDataArray('tb_product_mm', "productmm", "product_time")
     socketDataArray('tb_product_5m', "product5m", "product_time")
