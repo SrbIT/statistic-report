@@ -135,6 +135,9 @@ function UpdateData(paraCollection,
 
     MongoClient.connect(url, function (err, db) {
         assert.equal(null, err);
+        if (err) {
+            console.log("Fail")
+        }
 
         updateRestaurants(paraCollection,
             paraTimeFormat,
