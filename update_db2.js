@@ -173,6 +173,7 @@ var interValmm = setInterval(function () {
     for (var i = 25; i >= 5; i--) {
 
         UpdateData('tb_sessions_mm', "YYYYMMDDHHmm", ":session:", "mm", i)
+        UpdateData('tb_played_mm', "YYYYMMDDHHmm", ":played:", "mm", i)
 
         UpdateDataArray('tb_product_mm', "YYYYMMDDHHmm", ":product:", "mm", i)
         UpdateDataArray('tb_profile_mm', "YYYYMMDDHHmm", ":profile:", "mm", i)
@@ -184,6 +185,7 @@ var interValmm = setInterval(function () {
     for (var i = 1; i >= 0; i--) {
 
         UpdateData('tb_sessions_HH', "YYYYMMDDHH", ":session:", "HH", i)
+        UpdateData('tb_played_HH', "YYYYMMDDHH", ":played:", "HH", i)
 
         UpdateDataArray('tb_product_HH', "YYYYMMDDHH", ":product:", "HH", i)
         UpdateDataArray('tb_profile_HH', "YYYYMMDDHH", ":profile:", "HH", i)
@@ -195,6 +197,7 @@ var interValmm = setInterval(function () {
     for (var i = 1; i >= 0; i--) {
 
         UpdateData('tb_sessions_dd', "YYYYMMDD", ":session:", "dd", i)
+        UpdateData('tb_played_dd', "YYYYMMDD", ":played:", "dd", i)
 
         UpdateDataArray('tb_product_dd', "YYYYMMDD", ":product:", "dd", i)
         UpdateDataArray('tb_profile_dd', "YYYYMMDD", ":profile:", "dd", i)
