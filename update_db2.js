@@ -43,16 +43,17 @@ var updateRestaurants = function (paraCollection,
     var vTimeFormatter, redisKey
     if (paraTime === 'mm') {
         vTimeFormatter = moment.utc().subtract(paraI, 'minutes').format(paraTimeFormat)
-        redisKey = vTimeFormatter + paraObject
+        redisKey = "stats:" + vTimeFormatter + paraObject
     } else if (paraTime === 'HH') {
         vTimeFormatter = moment.utc().subtract(paraI, 'hours').format(paraTimeFormat)
-        redisKey = vTimeFormatter + paraObject
+        redisKey = "stats:" + vTimeFormatter + paraObject
     } else if (paraTime === 'dd') {
         vTimeFormatter = moment.utc().subtract(paraI, 'days').format(paraTimeFormat)
-        redisKey = vTimeFormatter + paraObject
+        redisKey = "stats:" + vTimeFormatter + paraObject
     }
 
-    client_Redis.hlen(redisKey, function (err, reply) {
+    //client_Redis.hlen(redisKey, function (err, reply) {
+    client_Redis.get(redisKey, function (err, reply) {
 
         if (reply === null) {
 
@@ -174,6 +175,7 @@ var interValmm = setInterval(function () {
 
         UpdateData('tb_sessions_mm', "YYYYMMDDHHmm", ":session:", "mm", i)
         UpdateData('tb_played_mm', "YYYYMMDDHHmm", ":played:", "mm", i)
+        UpdateData('tb_traffic_mm', "YYYYMMDDHHmm", ":played:", "mm", i)
 
         UpdateDataArray('tb_product_mm', "YYYYMMDDHHmm", ":product:", "mm", i)
         UpdateDataArray('tb_profile_mm', "YYYYMMDDHHmm", ":profile:", "mm", i)
