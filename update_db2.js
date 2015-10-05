@@ -178,7 +178,7 @@ var interValmm = setInterval(function () {
 
         UpdateData('tb_sessions_mm', "YYYYMMDDHHmm", ":session:", "mm", i)
         UpdateData('tb_played_mm', "YYYYMMDDHHmm", ":played:", "mm", i)
-        UpdateData('tb_traffic_mm', "YYYYMMDDHHmm", ":played:", "mm", i)
+        UpdateData('tb_traffic_mm', "YYYYMMDDHHmm", ":traffic:", "mm", i)
 
         UpdateDataArray('tb_product_mm', "YYYYMMDDHHmm", ":product:", "mm", i)
         UpdateDataArray('tb_profile_mm', "YYYYMMDDHHmm", ":profile:", "mm", i)
@@ -191,6 +191,7 @@ var interValmm = setInterval(function () {
 
         UpdateData('tb_sessions_HH', "YYYYMMDDHH", ":session:", "HH", i)
         UpdateData('tb_played_HH', "YYYYMMDDHH", ":played:", "HH", i)
+        UpdateData('tb_traffic_HH', "YYYYMMDDHH", ":traffic:", "HH", i)
 
         UpdateDataArray('tb_product_HH', "YYYYMMDDHH", ":product:", "HH", i)
         UpdateDataArray('tb_profile_HH', "YYYYMMDDHH", ":profile:", "HH", i)
@@ -203,6 +204,7 @@ var interValmm = setInterval(function () {
 
         UpdateData('tb_sessions_dd', "YYYYMMDD", ":session:", "dd", i)
         UpdateData('tb_played_dd', "YYYYMMDD", ":played:", "dd", i)
+        UpdateData('tb_traffic_dd', "YYYYMMDD", ":traffic:", "dd", i)
 
         UpdateDataArray('tb_product_dd', "YYYYMMDD", ":product:", "dd", i)
         UpdateDataArray('tb_profile_dd', "YYYYMMDD", ":profile:", "dd", i)
