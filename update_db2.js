@@ -180,11 +180,11 @@ var interValmm = setInterval(function () {
         UpdateData('tb_played_mm', "YYYYMMDDHHmm", ":played:", "mm", i)
         UpdateData('tb_traffic_mm', "YYYYMMDDHHmm", ":traffic:", "mm", i)
 
-        UpdateDataArray('tb_product_mm', "YYYYMMDDHHmm", ":product:", "mm", i)
-        UpdateDataArray('tb_profile_mm', "YYYYMMDDHHmm", ":profile:", "mm", i)
-        UpdateDataArray('tb_isp_mm', "YYYYMMDDHHmm", ":isp:", "mm", i)
-        UpdateDataArray('tb_device_mm', "YYYYMMDDHHmm", ":device:", "mm", i)
-        UpdateDataArray('tb_info_mm', "YYYYMMDDHHmm", ":info:", "mm", i)
+        //UpdateDataArray('tb_product_mm', "YYYYMMDDHHmm", ":product:", "mm", i)
+        //UpdateDataArray('tb_profile_mm', "YYYYMMDDHHmm", ":profile:", "mm", i)
+        //UpdateDataArray('tb_isp_mm', "YYYYMMDDHHmm", ":isp:", "mm", i)
+        //UpdateDataArray('tb_device_mm', "YYYYMMDDHHmm", ":device:", "mm", i)
+        //UpdateDataArray('tb_info_mm', "YYYYMMDDHHmm", ":info:", "mm", i)
 
     }
     for (var i = 1; i >= 0; i--) {
@@ -193,11 +193,11 @@ var interValmm = setInterval(function () {
         UpdateData('tb_played_HH', "YYYYMMDDHH", ":played:", "HH", i)
         UpdateData('tb_traffic_HH', "YYYYMMDDHH", ":traffic:", "HH", i)
 
-        UpdateDataArray('tb_product_HH', "YYYYMMDDHH", ":product:", "HH", i)
-        UpdateDataArray('tb_profile_HH', "YYYYMMDDHH", ":profile:", "HH", i)
-        UpdateDataArray('tb_isp_HH', "YYYYMMDDHH", ":isp:", "HH", i)
-        UpdateDataArray('tb_device_HH', "YYYYMMDDHH", ":device:", "HH", i)
-        UpdateDataArray('tb_info_HH', "YYYYMMDDHH", ":info:", "HH", i)
+        //UpdateDataArray('tb_product_HH', "YYYYMMDDHH", ":product:", "HH", i)
+        //UpdateDataArray('tb_profile_HH', "YYYYMMDDHH", ":profile:", "HH", i)
+        //UpdateDataArray('tb_isp_HH', "YYYYMMDDHH", ":isp:", "HH", i)
+        //UpdateDataArray('tb_device_HH', "YYYYMMDDHH", ":device:", "HH", i)
+        //UpdateDataArray('tb_info_HH', "YYYYMMDDHH", ":info:", "HH", i)
 
     }
     for (var i = 1; i >= 0; i--) {
