@@ -58,10 +58,12 @@ var updateRestaurants = function (paraCollection,
         if (reply === null) {
 
             console.log("Error: " + err)
+            console.log(redisKey)
             console.log(01)
 
         } else {
             console.log(parseInt(reply))
+
 
             db.collection(paraCollection).updateOne(
                 {"date_min": vTimeFormatter},
@@ -177,8 +179,8 @@ var interValmm = setInterval(function () {
     for (var i = 25; i >= 5; i--) {
 
         UpdateData('tb_sessions_mm', "YYYYMMDDHHmm", ":session:", "mm", i)
-        UpdateData('tb_played_mm', "YYYYMMDDHHmm", ":played:", "mm", i)
-        UpdateData('tb_traffic_mm', "YYYYMMDDHHmm", ":traffic:", "mm", i)
+        //UpdateData('tb_played_mm', "YYYYMMDDHHmm", ":played:", "mm", i)
+        //UpdateData('tb_traffic_mm', "YYYYMMDDHHmm", ":traffic:", "mm", i)
 
         //UpdateDataArray('tb_product_mm', "YYYYMMDDHHmm", ":product:", "mm", i)
         //UpdateDataArray('tb_profile_mm', "YYYYMMDDHHmm", ":profile:", "mm", i)
@@ -190,8 +192,8 @@ var interValmm = setInterval(function () {
     for (var i = 1; i >= 0; i--) {
 
         UpdateData('tb_sessions_HH', "YYYYMMDDHH", ":session:", "HH", i)
-        UpdateData('tb_played_HH', "YYYYMMDDHH", ":played:", "HH", i)
-        UpdateData('tb_traffic_HH', "YYYYMMDDHH", ":traffic:", "HH", i)
+        //UpdateData('tb_played_HH', "YYYYMMDDHH", ":played:", "HH", i)
+        //UpdateData('tb_traffic_HH', "YYYYMMDDHH", ":traffic:", "HH", i)
 
         //UpdateDataArray('tb_product_HH', "YYYYMMDDHH", ":product:", "HH", i)
         //UpdateDataArray('tb_profile_HH', "YYYYMMDDHH", ":profile:", "HH", i)
@@ -200,7 +202,7 @@ var interValmm = setInterval(function () {
         //UpdateDataArray('tb_info_HH', "YYYYMMDDHH", ":info:", "HH", i)
 
     }
-    for (var i = 1; i >= 0; i--) {
+    for (var i = 1; i > 0; i--) {
 
         UpdateData('tb_sessions_dd', "YYYYMMDD", ":session:", "dd", i)
         UpdateData('tb_session_hdo_dd', "YYYYMMDD", ":session:hdo:", "dd", i)
