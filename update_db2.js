@@ -203,6 +203,9 @@ var interValmm = setInterval(function () {
     for (var i = 1; i >= 0; i--) {
 
         UpdateData('tb_sessions_dd', "YYYYMMDD", ":session:", "dd", i)
+        UpdateData('tb_session_hdo_dd', "YYYYMMDD", ":session:hdo:", "dd", i)
+        UpdateData('tb_session_hdviet_dd', "YYYYMMDD", ":session:hdviet:", "dd", i)
+        UpdateData('tb_session_vip_hdviet_dd', "YYYYMMDD", ":session:vip_hdviet:", "dd", i)
         UpdateData('tb_played_dd', "YYYYMMDD", ":played:", "dd", i)
         UpdateData('tb_traffic_dd', "YYYYMMDD", ":traffic:", "dd", i)
 
