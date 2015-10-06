@@ -178,7 +178,7 @@ var interValmm = setInterval(function () {
 
     for (var i = 25; i >= 5; i--) {
 
-        UpdateData('tb_sessions_mm', "YYYYMMDDHHmm", ":session:", "mm", i)
+        //UpdateData('tb_sessions_mm', "YYYYMMDDHHmm", ":session:", "mm", i)
         //UpdateData('tb_played_mm', "YYYYMMDDHHmm", ":played:", "mm", i)
         //UpdateData('tb_traffic_mm', "YYYYMMDDHHmm", ":traffic:", "mm", i)
 
@@ -192,14 +192,14 @@ var interValmm = setInterval(function () {
     for (var i = 1; i >= 0; i--) {
 
         UpdateData('tb_sessions_HH', "YYYYMMDDHH", ":session:", "HH", i)
-        UpdateData('tb_played_HH', "YYYYMMDDHH", ":played:", "HH", i)
-        UpdateData('tb_traffic_HH', "YYYYMMDDHH", ":traffic:", "HH", i)
+        //UpdateData('tb_played_HH', "YYYYMMDDHH", ":played:", "HH", i)
+        //UpdateData('tb_traffic_HH', "YYYYMMDDHH", ":traffic:", "HH", i)
 
-        UpdateDataArray('tb_product_HH', "YYYYMMDDHH", ":product:", "HH", i)
-        UpdateDataArray('tb_profile_HH', "YYYYMMDDHH", ":profile:", "HH", i)
-        UpdateDataArray('tb_isp_HH', "YYYYMMDDHH", ":isp:", "HH", i)
-        UpdateDataArray('tb_device_HH', "YYYYMMDDHH", ":device:", "HH", i)
-        UpdateDataArray('tb_info_HH', "YYYYMMDDHH", ":info:", "HH", i)
+        //UpdateDataArray('tb_product_HH', "YYYYMMDDHH", ":product:", "HH", i)
+        //UpdateDataArray('tb_profile_HH', "YYYYMMDDHH", ":profile:", "HH", i)
+        //UpdateDataArray('tb_isp_HH', "YYYYMMDDHH", ":isp:", "HH", i)
+        //UpdateDataArray('tb_device_HH', "YYYYMMDDHH", ":device:", "HH", i)
+        //UpdateDataArray('tb_info_HH', "YYYYMMDDHH", ":info:", "HH", i)
 
     }
     for (var i = 0; i >= 0; i--) {

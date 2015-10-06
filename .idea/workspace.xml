@@ -27,8 +27,8 @@
       <file leaf-file-name="update_db2.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/update_db2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.40969163">
-              <caret line="197" column="7" selection-start-line="197" selection-start-column="7" selection-end-line="201" selection-end-column="70" />
+            <state vertical-scroll-proportion="-1.253304">
+              <caret line="194" column="6" selection-start-line="194" selection-start-column="6" selection-end-line="195" selection-end-column="73" />
               <folding>
                 <element signature="e#0#42#0" expanded="false" />
                 <element signature="e#295#316#0" expanded="false" />
@@ -42,7 +42,6 @@
                 <element signature="e#3284#3672#0" expanded="false" />
                 <element signature="e#3445#3506#0" expanded="false" />
                 <element signature="e#3564#3659#0" expanded="false" />
-                <element signature="e#4657#4700#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -719,8 +718,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/update_db2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40969163">
-          <caret line="197" column="7" selection-start-line="197" selection-start-column="7" selection-end-line="201" selection-end-column="70" />
+        <state vertical-scroll-proportion="-1.253304">
+          <caret line="194" column="6" selection-start-line="194" selection-start-column="6" selection-end-line="195" selection-end-column="73" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
             <element signature="e#295#316#0" expanded="false" />
@@ -734,7 +733,6 @@
             <element signature="e#3284#3672#0" expanded="false" />
             <element signature="e#3445#3506#0" expanded="false" />
             <element signature="e#3564#3659#0" expanded="false" />
-            <element signature="e#4657#4700#0" expanded="false" />
           </folding>
         </state>
       </provider>
