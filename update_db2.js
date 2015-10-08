@@ -209,7 +209,7 @@ var interValmm = setInterval(function () {
         UpdateData('tb_session_hdviet_dd', "YYYYMMDD", ":session:hdviet:", "dd", i)
         UpdateData('tb_session_vip_hdviet_dd', "YYYYMMDD", ":session:vip_hdviet:", "dd", i)
         UpdateData('tb_played_dd', "YYYYMMDD", ":played:", "dd", i)
-        UpdateData('tb_traffic_dd', "YYYYMMDD", ":traffic:", "dd", i)
+        //UpdateData('tb_traffic_dd', "YYYYMMDD", ":traffic:", "dd", i)
 
         UpdateDataArray('tb_product_dd', "YYYYMMDD", ":product:", "dd", i)
         UpdateDataArray('tb_profile_dd', "YYYYMMDD", ":profile:", "dd", i)
