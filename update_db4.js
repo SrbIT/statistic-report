@@ -6,7 +6,7 @@ var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert')
 var ObjectId = require('mongodb').ObjectID;
 var url = 'mongodb://localhost:27017/db_la';
-
+var _ = require('underscore');
 var moment = require('moment');
 var redis = require("redis");
 
