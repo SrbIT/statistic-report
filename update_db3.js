@@ -14,7 +14,7 @@ var redis = require("redis");
 var PORT = 6379,
 //HOST = '127.0.0.1',
 //    HOST = '10.0.0.24',
-    HOST = 'logana.hdviet.com',
+    HOST = 'r1',
 
     client_Redis = redis.createClient(PORT, HOST);
 
