@@ -11,9 +11,7 @@ var moment = require('moment');
 var redis = require("redis");
 
 var PORT = 6379,
-//HOST = '127.0.0.1',
-    HOST = '10.0.0.24',
-//    HOST = '23.99.96.65',
+    HOST = 'r1',
 
     client_Redis = redis.createClient(PORT, HOST);
 
@@ -111,7 +109,14 @@ var updateRestaurantsArray = function (paraCollection,
         redisKey = vTimeFormatter + paraObject
     } else if (paraTime === 'dd') {
         vTimeFormatter = moment.utc().subtract(paraI, 'days').format(paraTimeFormat)
+
         redisKey = vTimeFormatter + paraObject
+        if (paraObject === "tos:") {
+            redisKey = paraObject + vTimeFormatter + ":"
+        }
+        if (paraObject === "visitorDepth:") {
+            redisKey = paraObject + vTimeFormatter + ":"
+        }
     }
 
     console.log(redisKey)
@@ -304,6 +309,8 @@ var interValmm = setInterval(function () {
         UpdateDataArray('tb_isp_dd', "YYYYMMDD", ":isp:", "dd", i)
         UpdateDataArray('tb_device_dd', "YYYYMMDD", ":device:", "dd", i)
         UpdateDataArray('tb_info_dd', "YYYYMMDD", ":info:", "dd", i)
+        UpdateDataArray('tb_tos_dd', "YYYYMMDD", "tos:", "dd", i)
+        UpdateDataArray('tb_visitDepth_dd', "YYYYMMDD", "visitorDepth:", "dd", i)
         UpdateDataMovieNameArray('tb_movieName_dd', "YYYYMMDD", ":movieName:", "dd", i)
 
     }
