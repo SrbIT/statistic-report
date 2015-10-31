@@ -208,7 +208,7 @@ var updateMovieNameArray = function (paraCollection,
     }
 
     console.log(redisKey)
-    client_Redis.zrevrange(redisKey, 0, 50, 'withscores', function (err, reply) {
+    client_Redis.zrevrange(redisKey, 0, 49, 'withscores', function (err, reply) {
 
         if (reply === null) {
 
